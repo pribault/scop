@@ -25,18 +25,17 @@ all: $(NAME)
 libft/libft.a:
 	@make -C libft
 
-libmatrix/libmatrix.a:
-	@make -C libmatrix
-
-$(NAME): $(OBJ) libft/libft.a libmatrix/libmatrix.a
+$(NAME): $(OBJ) libft/libft.a
 	@echo "\033[38;5;196mcompiling $@\033[0m"
 	@$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(ENDFLAGS)
 
 clean:
+	@make -C libft clean
 	@echo "\033[38;5;6mremoving objects\033[0m"
 	@rm -f $(OBJ)
 
 fclean: clean
+	@make -C libft fclean
 	@echo "\033[38;5;27mremoving $(NAME)\033[0m"
 	@rm -f $(NAME)
 
