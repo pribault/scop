@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 14:54:59 by pribault          #+#    #+#             */
-/*   Updated: 2017/08/15 21:37:47 by pribault         ###   ########.fr       */
+/*   Updated: 2018/05/03 19:07:20 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,7 @@ t_mat4	create_mvp(t_env *env)
 
 	set_id_mat4(&m, 1);
 	v = lookat(env->pos, env->center, new_vec3(0, 1, 0));
-	p = perspective(45, 16.0 / 9.0, 0.1, 1000);
+	p = perspective(45, 16.0 / 9.0, 1, 1000);
 	return (mat_4_mat(m, mat_4_mat(v, p)));
 }
 

@@ -1,7 +1,14 @@
 NAME = scop
 CC = gcc
 FLAGS = -Wall -Wextra
+ARCH =	$(shell uname -s)
+ifeq ($(ARCH), Darwin)
+ENDFLAGS = -L libft -lft -framework OpenGL -lSDL2 -lSDL2_image -lm
+else
+ifeq ($(ARCH), linux)
 ENDFLAGS = -L libft -lft -lGL -lSDL2 -lSDL2_image -lm
+endif
+endif
 INCLUDE = scop.h matrix.h vector.h bmp.h
 SRC =	scop.c error.c window.c load.c load2.c\
 		bmp_loader.c load_mtl.c buffer.c\

@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 15:08:51 by pribault          #+#    #+#             */
-/*   Updated: 2017/08/15 21:34:25 by pribault         ###   ########.fr       */
+/*   Updated: 2018/05/03 19:04:43 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,23 @@ void	init_sdl(t_win *win)
 		error(4, NULL, 1);
 	if (SDL_GetDisplayMode(0, 0, &win->mode))
 		error(5, NULL, 1);
-	win->width = win->mode.w;
-	win->height = win->mode.h;
+	win->width = win->mode.w / 2;
+	win->height = win->mode.h / 2;
 	win->name = ft_strdup("scop");
+	if (SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4) < 0)
+		error(8, NULL, 1);
+	if (SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0) < 0)
+		error(8, NULL, 1);
+	if (SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1) < 0)
+		error(8, NULL, 1);
+	if (SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK,
+		SDL_GL_CONTEXT_PROFILE_CORE) < 0)
+		error(8, NULL, 1);
 	if (!(win->win = SDL_CreateWindow(win->name, 0, 0,
 	win->width, win->height, SDL_WINDOW_OPENGL)))
 		error(6, NULL, 1);
 	if (!(win->context = SDL_GL_CreateContext(win->win)))
 		error(7, NULL, 1);
-	if (SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 4) < 0)
-		error(8, NULL, 1);
-	if (SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1) < 0)
-		error(8, NULL, 1);
 }
 
 char	*get_file_content(char *file)
@@ -95,5 +100,7 @@ t_env	*init_env(void)
 	glDepthFunc(GL_LESS);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glGenVertexArrays(1, &env->vao);
+	glBindVertexArray(env->vao);
 	return (env);
 }

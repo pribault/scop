@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 14:55:02 by pribault          #+#    #+#             */
-/*   Updated: 2017/08/15 18:19:57 by pribault         ###   ########.fr       */
+/*   Updated: 2018/05/03 18:49:21 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 # define SCOP_H
 
 # include <sys/time.h>
-# include <GL/gl3.h>
-# include <GL/gl.h>
+# ifdef __APPLE__
+#   include <OpenGL/gl3.h>
+# else
+#  ifdef __linux__
+#   include <GL/gl3.h>
+#  endif
+# endif
 # include <SDL2/SDL.h>
 # include <SDL2/SDL_image.h>
 # include "ft_printf.h"
@@ -117,6 +122,7 @@ typedef struct		s_env
 	t_shaders		shaders;
 	t_light			light;
 	GLuint			light_id;
+	GLuint			vao;
 	t_list			*stack;
 	t_vec3			pos;
 	t_vec3			center;
