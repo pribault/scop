@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/13 14:53:38 by pribault          #+#    #+#             */
-/*   Updated: 2017/08/14 10:32:46 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/27 18:17:59 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@ t_mat4	lookat(t_vec3 eye, t_vec3 center, t_vec3 up)
 	t_vec3	s;
 	t_vec3	u;
 
-	f = sub_vec3(center, eye);
-	normalize_vec3(&f);
-	s = cross_vec3(f, up);
-	normalize_vec3(&s);
+	f = normalize_vec3(sub_vec3(center, eye));
+	s = normalize_vec3(cross_vec3(f, up));
 	u = cross_vec3(s, f);
 	ret.x = new_vec4(s.x, u.x, -f.x, 0);
 	ret.y = new_vec4(s.y, u.y, -f.y, 0);

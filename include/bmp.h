@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 14:12:16 by pribault          #+#    #+#             */
-/*   Updated: 2017/08/14 21:50:56 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/26 11:48:42 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,20 @@
 
 # define MAGIC	0x4d42
 
-# pragma pack(1)
-
-typedef struct	s_color
+typedef struct	s_c
 {
 	Uint8		r;
 	Uint8		g;
 	Uint8		b;
 	Uint8		a;
-}				t_color;
+}				t_c;
 
 typedef struct	s_texture
 {
 	char		*name;
 	Uint16		w;
 	Uint16		h;
-	t_color		*img;
+	t_c			*img;
 }				t_texture;
 
 typedef struct	s_file_header

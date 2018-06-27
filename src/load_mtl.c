@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 17:04:40 by pribault          #+#    #+#             */
-/*   Updated: 2017/08/15 15:46:35 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/27 12:56:38 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*get_path(char *file)
 	return (path);
 }
 
-void	invert(t_color *c, Uint8 bpp)
+void	invert(t_c *c, Uint8 bpp)
 {
 	Uint8	tmp;
 
@@ -52,14 +52,14 @@ t_texture	*load_png(char *name)
 	if (!(surface = IMG_Load(name)))
 		return (NULL);
 	bpp = surface->format->BytesPerPixel;
-	if (!(new = (t_texture*)malloc(sizeof(t_texture))))
+	if (!(new = (t_texture *)malloc(sizeof(t_texture))))
 		error(1, NULL, 1);
 	new->name = ft_strdup(name);
 	new->w = surface->w;
 	new->h = surface->h;
-	if (!(new->img = (t_color*)malloc(sizeof(t_color) * new->w * new->h)))
+	if (!(new->img = (t_c *)malloc(sizeof(t_c) * new->w * new->h)))
 		error(1, NULL, 1);
-	ft_bzero(new->img, sizeof(t_color) * new->w * new->h);
+	ft_bzero(new->img, sizeof(t_c) * new->w * new->h);
 	i[0] = 0;
 	while (i[0] < new->h)
 	{

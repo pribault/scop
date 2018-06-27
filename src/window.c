@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 15:08:51 by pribault          #+#    #+#             */
-/*   Updated: 2018/05/03 19:04:43 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/27 21:09:54 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,30 @@ void	init_shaders(t_shaders *shaders)
 	ft_printf("%s: %s\n", "fragment.glsl", log);
 }
 
+void	init_opengl(t_env *env)
+{
+	ft_printf("OpenGL version: %s\nShader Version: %s\n",
+		glGetString(GL_VERSION),
+		glGetString(GL_SHADING_LANGUAGE_VERSION));
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_TEXTURE_2D);
+	glDepthFunc(GL_LESS);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glGenVertexArrays(1, &env->vao);
+	glBindVertexArray(env->vao);
+	glUseProgram(env->shaders.program);
+	env->mvp_id = glGetUniformLocation(env->shaders.program, "MVP");
+	env->light_id = glGetUniformLocation(env->shaders.program, "light");
+	env->quat_id = glGetUniformLocation(env->shaders.program, "quaternion");
+	env->pos_id = glGetUniformLocation(env->shaders.program, "position");
+	env->size_id = glGetUniformLocation(env->shaders.program, "size");
+	env->cam_id = glGetUniformLocation(env->shaders.program, "camera");
+	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+	glEnableVertexAttribArray(2);
+}
+
 t_env	*init_env(void)
 {
 	t_env	*env;
@@ -87,20 +111,15 @@ t_env	*init_env(void)
 	ft_bzero(env, sizeof(t_env));
 	init_sdl(&env->win);
 	init_shaders(&env->shaders);
-	env->pos = new_vec3(2, 2, 0);
-	env->center = new_vec3(0, 0, 0);
-	env->angle = ANGLE;
-	env->angle = 0;
+	env->pos = new_vec3(-100, 0, 0);
+	env->dir = normalize_vec3(new_vec3(1, 0, 0));
 	env->light.pos = new_vec3(10, 10, 10);
 	env->light.color = new_vec3(1, 1, 1);
-	env->light.i = new_vec3(16, 1, 1);
-	normalize_vec3(&env->light.i);
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_TEXTURE_2D);
-	glDepthFunc(GL_LESS);
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glGenVertexArrays(1, &env->vao);
-	glBindVertexArray(env->vao);
+	env->light.i = new_vec3(0.42, 0.6, 0.1);
+	env->quat = new_quat(0, 0, 0);
+	env->obj_pos = new_vec3(0, 0, 0);
+	env->size = new_vec3(1, 1, 1);
+	env->rot_speed = new_vec3(0, ROT_SPEED, 0);
+	init_opengl(env);
 	return (env);
 }

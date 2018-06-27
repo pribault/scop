@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 13:13:08 by pribault          #+#    #+#             */
-/*   Updated: 2017/08/15 15:45:41 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/26 11:49:08 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_texture	*load_bmp(char *file)
 		error(9, file, 1);
 	if (!(new = (t_texture*)malloc(sizeof(t_texture))))
 		error(1, NULL, 1);
-	if (!(new->img = (t_color*)malloc(dib.raw_size)))
+	if (!(new->img = (t_c*)malloc(dib.raw_size)))
 		error(1, NULL, 1);
 	lseek(fd, header.offset, SEEK_SET);
 	new->name = ft_strdup(file);

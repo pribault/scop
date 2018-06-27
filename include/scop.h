@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 14:55:02 by pribault          #+#    #+#             */
-/*   Updated: 2018/05/03 18:49:21 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/27 21:49:58 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@
 
 # define SEPARATORS	"\a\b\t\n\v\f\r "
 # define ANGLE		0.02
-# define STEP		0.001
+# define STEP		1
+# define ROT_SPEED	0.02
+# define PI			3.1415926535
+# define FPS		60
 
 # pragma pack(1)
 
@@ -44,13 +47,13 @@ typedef struct		s_win
 	SDL_DisplayMode	mode;
 }					t_win;
 
-typedef struct		s_color
+typedef struct		s_c
 {
 	Uint8			r;
 	Uint8			g;
 	Uint8			b;
 	Uint8			a;
-}					t_color;
+}					t_c;
 
 typedef struct		s_light
 {
@@ -78,7 +81,7 @@ typedef struct		s_texture
 	char			*name;
 	Uint16			w;
 	Uint16			h;
-	t_color			*img;
+	t_c				*img;
 	GLuint			id;
 }					t_texture;
 
@@ -121,16 +124,26 @@ typedef struct		s_env
 	Uint8			stop;
 	t_shaders		shaders;
 	t_light			light;
+	t_quat			quat;
+	t_vec3			size;
+	t_vec3			obj_pos;
+	t_vec3			rot_speed;
 	GLuint			light_id;
+	GLuint			mvp_id;
+	GLuint			quat_id;
+	GLuint			size_id;
+	GLuint			pos_id;
+	GLuint			cam_id;
 	GLuint			vao;
 	t_list			*stack;
 	t_vec3			pos;
-	t_vec3			center;
-	double			angle;
+	t_vec3			dir;
 	char			*path;
 }					t_env;
 
 t_env		*init_env(void);
+
+void		events(t_env *env, SDL_Event *event);
 
 void		print_list(t_list *list);
 
