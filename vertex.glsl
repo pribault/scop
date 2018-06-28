@@ -6,6 +6,7 @@ layout(location = 2) in vec3	vnin;
 
 out vec2	vt;
 out vec3	vn;
+out vec3	pos;
 
 uniform mat4	MVP;
 uniform vec3	position;
@@ -31,7 +32,8 @@ vec3	rotate(vec3 vec, vec4 quat)
 
 void main()
 {
-	gl_Position = MVP * vec4(rotate(v * size, quaternion), 1);
+	pos = rotate(v, quaternion) * size + position;
+	gl_Position = MVP * vec4(pos, 1);
 	vt = vtin;
-	vn = vnin;
+	vn = rotate(vnin, quaternion);
 }

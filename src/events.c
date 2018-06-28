@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 13:38:34 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/27 21:18:46 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/28 17:24:00 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ int		camera_events_2(t_env *env, SDL_Event *event)
 	else if (event->key.keysym.sym == SDLK_DOWN)
 		env->dir = rotate_axed_vec3(env->dir, rotate_vec3(new_vec3(env->dir.x,
 			0, env->dir.z), new_quat(0, -PI / 2, 0)), ANGLE);
+	else if (event->key.keysym.sym == SDLK_UP)
+		env->dir = rotate_vec3(env->dir, new_quat(0, 0, ANGLE));
+	else if (event->key.keysym.sym == SDLK_DOWN)
+		env->dir = rotate_vec3(env->dir, new_quat(0, 0, -ANGLE));
 	else
 		return (-1);
 	return (0);
@@ -50,6 +54,48 @@ int		camera_events(t_env *env, SDL_Event *event)
 	return (0);
 }
 
+int		light_event(t_env *env, SDL_Event *event)
+{
+	if (event->key.keysym.sym == SDLK_KP_4)
+		env->light.i.x -= (env->light.i.x - LIGHT_STEP >= 0) ? LIGHT_STEP : 0;
+	else if (event->key.keysym.sym == SDLK_KP_5)
+		env->light.i.y -= (env->light.i.y - LIGHT_STEP >= 0) ? LIGHT_STEP : 0;
+	else if (event->key.keysym.sym == SDLK_KP_6)
+		env->light.i.z -= (env->light.i.z - LIGHT_STEP >= 0) ? LIGHT_STEP : 0;
+	else if (event->key.keysym.sym == SDLK_KP_7)
+		env->light.i.x += LIGHT_STEP;
+	else if (event->key.keysym.sym == SDLK_KP_8)
+		env->light.i.y += LIGHT_STEP;
+	else if (event->key.keysym.sym == SDLK_KP_9)
+		env->light.i.z += LIGHT_STEP;
+	else
+		return (-1);
+	ft_printf("\e[1A\e[Klight_intensity(%f %f %f)\n", env->light.i.x,
+		env->light.i.y, env->light.i.z);
+	return (0);
+}
+
+int		rot_event(t_env *env, SDL_Event *event)
+{
+	if (event->key.keysym.sym == SDLK_KP_4)
+		env->rot_speed.x -= ANGLE;
+	else if (event->key.keysym.sym == SDLK_KP_5)
+		env->rot_speed.y -= ANGLE;
+	else if (event->key.keysym.sym == SDLK_KP_6)
+		env->rot_speed.z -= ANGLE;
+	else if (event->key.keysym.sym == SDLK_KP_7)
+		env->rot_speed.x += ANGLE;
+	else if (event->key.keysym.sym == SDLK_KP_8)
+		env->rot_speed.y += ANGLE;
+	else if (event->key.keysym.sym == SDLK_KP_9)
+		env->rot_speed.z += ANGLE;
+	else
+		return (-1);
+	ft_printf("\e[1A\e[Krotation_speed(%f %f %f)\n", env->rot_speed.x,
+		env->rot_speed.y, env->rot_speed.z);
+	return (0);
+}
+
 void	events(t_env *env, SDL_Event *event)
 {
 	if (event->type == SDL_QUIT)
@@ -65,27 +111,17 @@ void	events(t_env *env, SDL_Event *event)
 			env->stop += (!(env->stop & 1)) ? 1 : 0;
 		else if (!camera_events(env, event))
 			return ;
-		else if (event->key.keysym.sym == SDLK_UP)
-			env->dir = rotate_vec3(env->dir, new_quat(0, 0, ANGLE));
-		else if (event->key.keysym.sym == SDLK_DOWN)
-			env->dir = rotate_vec3(env->dir, new_quat(0, 0, -ANGLE));
-		else if (event->key.keysym.sym == SDLK_KP_7)
-			env->light.i.x += 0.01;
-		else if (event->key.keysym.sym == SDLK_KP_8)
-			env->light.i.y += 0.01;
-		else if (event->key.keysym.sym == SDLK_KP_9)
-			env->light.i.z += 0.01;
-		else if (event->key.keysym.sym == SDLK_KP_4)
-			env->light.i.x -= (env->light.i.x - 0.01 >= 0) ? 0.01 : 0;
-		else if (event->key.keysym.sym == SDLK_KP_5)
-			env->light.i.y -= (env->light.i.y - 0.01 >= 0) ? 0.01 : 0;
-		else if (event->key.keysym.sym == SDLK_KP_6)
-			env->light.i.z -= (env->light.i.z - 0.01 >= 0) ? 0.01 : 0;
 		else if (event->key.keysym.sym == SDLK_KP_PLUS)
-			;
+			env->input = (env->input + 1) % INPUT_MAX;
 		else if (event->key.keysym.sym == SDLK_KP_MINUS)
-			;
-		else if (event->key.keysym.sym == SDLK_LSHIFT)
-			ft_printf("shift\n");
+			env->input = (env->input + INPUT_MAX - 1) % INPUT_MAX;
+		else if ((env->input == INPUT_LIGHT && !light_event(env, event)) ||
+			(env->input == INPUT_ROT && !rot_event(env, event)) ||
+			(env->input == INPUT_MOVE && !move_event(env, event)) ||
+			(env->input == INPUT_COLOR && !color_event(env, event)) ||
+			(env->input == INPUT_SIZE && !resize_event(env, event)))
+			return ;
+		else if (!number_event(env, event))
+			return ;
 	}
 }

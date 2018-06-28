@@ -6,85 +6,69 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 19:27:45 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/27 21:35:39 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/28 16:59:19 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "scop.h"
 
-void	add_elem(t_buffer *list, char **params, size_t len)
+void	add_elem(t_buffer *list, char *param1, char *param2, char *param3)
 {
+	char	*params[3];
 	size_t	n[3];
 	t_elem	f;
 	size_t	i;
 
-	i = 0;
-	while (i < len - 1)
+	i = (size_t)-1;
+	params[0] = param1;
+	params[1] = param2;
+	params[2] = param3;
+	ft_bzero(&f, sizeof(t_elem));
+	while (++i < 3)
 	{
-		ft_bzero(n, sizeof(size_t) * 3);
-		get_numbers(params[i + 1], n);
+		get_numbers(params[i], n);
 		if (n[0])
-			f.v[i] = *((t_vec3*)get_listn(list->v, n[0])->content);
+			f.v[i] = *(t_vec3 *)ft_vector_get(&list->v, n[0] - 1);
 		if (n[1])
-			f.vt[i] = *((t_vec2*)get_listn(list->vt, n[1])->content);
+			f.vt[i] = *(t_vec2 *)ft_vector_get(&list->vt, n[1] - 1);
 		if (n[2])
-			f.vn[i] = *((t_vec3*)get_listn(list->vn, n[2])->content);
-		i++;
+			f.vn[i] = *(t_vec3 *)ft_vector_get(&list->vn, n[2] - 1);
+		else
+			f.vn[i] = (t_vec3){f.v[i].x, f.v[i].y, f.v[i].z};
 	}
-	ft_lstadd(&list->f, ft_lstnew(&f, sizeof(t_elem)));
-}
-
-void	add_vector(t_list **list, char **params, Uint8 n)
-{
-	t_vec4	new;
-
-	new = new_vec4(0, 0, 0, 0);
-	if (n >= 1)
-		new.x = ft_atof(params[1]);
-	if (n >= 2)
-		new.y = ft_atof(params[2]);
-	if (n >= 3)
-		new.z = ft_atof(params[3]);
-	if (n >= 4)
-		new.w = ft_atof(params[4]);
-	ft_lstadd(list, ft_lstnew(&new, sizeof(t_type) * n));
+	ft_vector_add(&list->f, &f);
 }
 
 void	alloc_stack(t_env *env, t_buffer *list)
 {
 	t_stack	*stack;
-	t_list	*l;
+	t_elem	*elem;
 	size_t	i;
 
-	if (!env->stack)
+	i = (size_t)-1;
+	if (!env->stack.n || !(stack =
+		ft_vector_get(&env->stack, env->stack.n - 1)))
 		return ;
-	stack = env->stack->content;
-	i = 0;
-	l = list->f;
-	stack->n_f = ft_listlen(l);
+	stack->n_f = list->f.n;
 	if (!(stack->v = (t_vec3*)malloc(sizeof(t_vec3) * stack->n_f * 3)) ||
 		!(stack->vn = (t_vec3*)malloc(sizeof(t_vec3) * stack->n_f * 3)) ||
 		!(stack->vt = (t_vec2*)malloc(sizeof(t_vec2) * stack->n_f * 3)))
 		error(1, NULL, 1);
-	while (l)
+	while (++i < list->f.n && (elem = ft_vector_get(&list->f, i)))
 	{
-		ft_memcpy(&stack->v[i * 3], &((t_elem*)l->content)->v,
-		sizeof(t_vec3) * 3);
-		ft_memcpy(&stack->vn[i * 3], &((t_elem*)l->content)->vn,
-		sizeof(t_vec3) * 3);
-		ft_memcpy(&stack->vt[i++ * 3], &((t_elem*)l->content)->vt,
-		sizeof(t_vec2) * 3);
-		l = l->next;
+		ft_memcpy(&stack->v[i * 3], &elem->v, sizeof(t_vec3) * 3);
+		ft_memcpy(&stack->vn[i * 3], &elem->vn, sizeof(t_vec3) * 3);
+		ft_memcpy(&stack->vt[i * 3], &elem->vt, sizeof(t_vec2) * 3);
 	}
 	stack->v_id = create_buffer(stack->v, sizeof(t_vec3) * stack->n_f * 3);
 	stack->vn_id = create_buffer(stack->vn, sizeof(t_vec3) * stack->n_f * 3);
 	stack->vt_id = create_buffer(stack->vt, sizeof(t_vec2) * stack->n_f * 3);
-	ft_lstdel(&list->f, (void*)&free);
+	ft_vector_resize(&list->f, 0);
 }
 
 void	treat_params(t_env *env, t_buffer *list, char **params, size_t len)
 {
-	t_stack	stack;
+	t_stack		stack;
 
 	if (!ft_strcmp(params[0], "v") && len == 4)
 		add_vector(&list->v, params, 3);
@@ -99,22 +83,42 @@ void	treat_params(t_env *env, t_buffer *list, char **params, size_t len)
 	{
 		alloc_stack(env, list);
 		ft_bzero(&stack, sizeof(t_stack));
-		stack.mat = get_mat(list->mat, params[1]);
-		ft_lstadd(&env->stack, ft_lstnew(&stack, sizeof(t_stack)));
+		stack.mat = get_mat(&list->mat, params[1]);
+		ft_vector_add(&env->stack, &stack);
 	}
 	else if (!ft_strcmp(params[0], "f") && (len == 4 || len == 5))
-		add_elem(list, params, len);
+		add_elem(list, params[1], params[2], params[3]);
 	else
 		error(100, params[0], 0);
+	if (!ft_strcmp(params[0], "f") && len == 5)
+		add_elem(list, params[1], params[3], params[4]);
 }
 
-/*
-**	0:vertex 1:normals 2:textures 3:elems
-*/
+void	init_buffer(t_env *env, t_buffer *buffer)
+{
+	static t_c			default_color = {255, 255, 255, 255};
+	static t_texture	default_texture = {"default_white", 1, 1,
+		&default_color, 0};
+	static t_mat		default_mat = {"default", {&default_texture,
+		&default_texture, &default_texture}, {1, 1, 1}, {1, 1, 1}, {1, 1, 1},
+		0, 0};
+	t_stack				stack;
+
+	ft_vector_init(&buffer->v, ALLOC_MALLOC, sizeof(t_vec3));
+	ft_vector_init(&buffer->vt, ALLOC_MALLOC, sizeof(t_vec2));
+	ft_vector_init(&buffer->vn, ALLOC_MALLOC, sizeof(t_vec3));
+	ft_vector_init(&buffer->f, ALLOC_MALLOC, sizeof(t_elem));
+	ft_vector_init(&buffer->mat, ALLOC_MALLOC, sizeof(t_mat));
+	ft_vector_init(&buffer->texture, ALLOC_MALLOC, sizeof(t_texture));
+	ft_vector_add(&buffer->mat, &default_mat);
+	ft_vector_add(&buffer->texture, &default_texture);
+	ft_bzero(&stack, sizeof(t_stack));
+	stack.mat = get_mat(&buffer->mat, "default");
+	ft_vector_add(&env->stack, &stack);
+}
 
 void	load_obj(t_env *env, char *file)
 {
-	t_buffer	list;
 	size_t		len;
 	char		**array;
 	char		*line;
@@ -122,20 +126,21 @@ void	load_obj(t_env *env, char *file)
 
 	if ((fd = open(file, O_RDONLY)) == -1)
 		error(2, file, 1);
-	ft_bzero(&list, sizeof(t_buffer));
+	init_buffer(env, &env->buffer);
 	while (ft_get_next_line(fd, &line) == 1)
 	{
 		array = ft_multisplit(line, SEPARATORS);
 		len = ft_arraylen(array);
 		if (len > 0 && array[0][0] != '#')
-			treat_params(env, &list, array, len);
+			treat_params(env, &env->buffer, array, len);
 		ft_free_array((void**)array, len + 1);
 		free(line);
 	}
-	if (env->stack)
-		alloc_stack(env, &list);
-	ft_lstdel(&list.v, (void*)&free);
-	ft_lstdel(&list.vt, (void*)&free);
-	ft_lstdel(&list.vn, (void*)&free);
+	alloc_stack(env, &env->buffer);
+	ft_vector_del(&env->buffer.v);
+	ft_vector_del(&env->buffer.vt);
+	ft_vector_del(&env->buffer.vn);
+	ft_vector_del(&env->buffer.f);
 	close(fd);
+	check_materials(&env->buffer);
 }

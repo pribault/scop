@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 14:55:02 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/27 21:49:58 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/28 17:23:47 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <sys/time.h>
 # ifdef __APPLE__
-#   include <OpenGL/gl3.h>
+#  include <OpenGL/gl3.h>
 # else
 #  ifdef __linux__
 #   include <GL/gl3.h>
@@ -27,14 +27,25 @@
 # include "vector.h"
 # include "matrix.h"
 
-# define SEPARATORS	"\a\b\t\n\v\f\r "
-# define ANGLE		0.02
-# define STEP		1
-# define ROT_SPEED	0.02
-# define PI			3.1415926535
-# define FPS		60
+# define SEPARATORS		"\a\b\t\n\v\f\r "
+# define ANGLE			0.02
+# define STEP			1
+# define ROT_SPEED		0.02
+# define PI				3.1415926535
+# define FPS			60
+# define LIGHT_STEP		0.01
+# define COLOR_STEP		0.01
+# define RESIZE_SPEED	0.01
 
-# pragma pack(1)
+typedef enum		e_input
+{
+	INPUT_LIGHT,
+	INPUT_ROT,
+	INPUT_MOVE,
+	INPUT_COLOR,
+	INPUT_SIZE,
+	INPUT_MAX
+}					t_input;
 
 typedef struct		s_win
 {
@@ -110,12 +121,12 @@ typedef struct		s_stack
 
 typedef struct		s_buffer
 {
-	t_list			*v;
-	t_list			*vt;
-	t_list			*vn;
-	t_list			*f;
-	t_list			*mat;
-	t_list			*texture;
+	t_vector		v;
+	t_vector		vt;
+	t_vector		vn;
+	t_vector		f;
+	t_vector		mat;
+	t_vector		texture;
 }					t_buffer;
 
 typedef struct		s_env
@@ -135,31 +146,37 @@ typedef struct		s_env
 	GLuint			pos_id;
 	GLuint			cam_id;
 	GLuint			vao;
-	t_list			*stack;
+	GLuint			tex_id[3];
+	t_buffer		buffer;
+	t_vector		stack;
 	t_vec3			pos;
 	t_vec3			dir;
+	t_input			input;
+	GLenum			draw_mode;
 	char			*path;
 }					t_env;
 
-t_env		*init_env(void);
+t_env				*init_env(void);
 
-void		events(t_env *env, SDL_Event *event);
+void				events(t_env *env, SDL_Event *event);
+int					move_event(t_env *env, SDL_Event *event);
+int					color_event(t_env *env, SDL_Event *event);
+int					resize_event(t_env *env, SDL_Event *event);
+int					number_event(t_env *env, SDL_Event *event);
 
-void		print_list(t_list *list);
+void				load_obj(t_env *env, char *file);
+t_texture			*load_bmp(char *file);
+void				load_mtllib(t_buffer *list, char *file);
 
-void		load_obj(t_env *env, char *file);
-t_texture	*load_bmp(char *file);
-void		load_mtllib(t_buffer *list, char *file);
+char				*get_path(char *file);
+t_mat				*get_mat(t_vector *vec, char *name);
+void				add_vector(t_vector *vec, char **params, Uint8 n);
+void				get_numbers(char *params, size_t *n);
+void				check_materials(t_buffer *buffer);
 
-char		*get_path(char *file);
-t_mat		*get_mat(t_list *list, char *name);
-void		get_numbers(char *params, size_t *n);
-t_list		*get_listn(t_list *list, size_t n);
-size_t		ft_listlen(t_list *list);
+void				error(int error, void *param, char state);
 
-void		error(int error, void *param, char state);
-
-GLuint		create_buffer(void *data, size_t size);
-GLuint		create_image_buffer(t_texture *texture);
+GLuint				create_buffer(void *data, size_t size);
+GLuint				create_image_buffer(t_texture *texture);
 
 #endif

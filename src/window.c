@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 15:08:51 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/27 21:09:54 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/28 17:22:15 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,9 @@ void	init_opengl(t_env *env)
 	env->pos_id = glGetUniformLocation(env->shaders.program, "position");
 	env->size_id = glGetUniformLocation(env->shaders.program, "size");
 	env->cam_id = glGetUniformLocation(env->shaders.program, "camera");
+	env->tex_id[0] = glGetUniformLocation(env->shaders.program, "ka");
+	env->tex_id[1] = glGetUniformLocation(env->shaders.program, "kd");
+	env->tex_id[2] = glGetUniformLocation(env->shaders.program, "ks");
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 	glEnableVertexAttribArray(2);
@@ -113,13 +116,16 @@ t_env	*init_env(void)
 	init_shaders(&env->shaders);
 	env->pos = new_vec3(-100, 0, 0);
 	env->dir = normalize_vec3(new_vec3(1, 0, 0));
-	env->light.pos = new_vec3(10, 10, 10);
+	env->light.pos = new_vec3(0, 100, 0);
 	env->light.color = new_vec3(1, 1, 1);
 	env->light.i = new_vec3(0.42, 0.6, 0.1);
 	env->quat = new_quat(0, 0, 0);
 	env->obj_pos = new_vec3(0, 0, 0);
 	env->size = new_vec3(1, 1, 1);
 	env->rot_speed = new_vec3(0, ROT_SPEED, 0);
+	env->input = INPUT_LIGHT;
+	env->draw_mode = GL_TRIANGLES;
 	init_opengl(env);
+	ft_vector_init(&env->stack, ALLOC_MALLOC, sizeof(t_stack));
 	return (env);
 }

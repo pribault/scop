@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 16:13:23 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/07 00:33:35 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/28 10:59:10 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 ** macros
 */
 
-# define VECTOR_SIZE	4096
-# define BUFF_SIZE 		4096
+# define VECTOR_SIZE	16384
+# define BUFF_SIZE 		16384
 
 # define WHITESPACES	"\a\b\t\n\v\f\r "
 

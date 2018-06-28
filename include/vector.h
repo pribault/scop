@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/13 11:08:59 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/27 20:45:11 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/28 10:44:43 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define VECTOR_H
 
 # ifdef __APPLE__
-#   include <OpenGL/gl3.h>
+#  include <OpenGL/gl3.h>
 # else
 #  ifdef __linux__
 #   include <GL/gl3.h>

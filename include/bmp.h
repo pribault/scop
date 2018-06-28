@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 14:12:16 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/26 11:48:42 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/28 10:44:30 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ typedef struct	s_dib_header
 	Uint32		importants;
 }				t_dib_header;
 
-void		error(int error, void *param, char state);
+void			error(int error, void *param, char state);
 
 #endif

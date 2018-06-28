@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 14:54:59 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/27 21:10:00 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/28 17:22:21 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,9 @@ t_mat4	create_mvp(t_env *env)
 void	render_stacks(t_env *env)
 {
 	t_mat4			mvp;
-	t_list			*list;
 	t_stack			*stack;
+	size_t			i;
 
-	list = env->stack;
 	mvp = create_mvp(env);
 	glUniformMatrix4fv(env->mvp_id, 1, GL_FALSE, (GLfloat*)&mvp);
 	glUniformMatrix3fv(env->light_id, 1, GL_FALSE, (GLfloat*)&env->light);
@@ -72,23 +71,25 @@ void	render_stacks(t_env *env)
 	glUniform3fv(env->size_id, 1, (GLfloat *)&env->size);
 	glUniform3fv(env->pos_id, 1, (GLfloat *)&env->obj_pos);
 	glUniform3fv(env->cam_id, 1, (GLfloat *)&env->pos);
-	while (list)
+	i = (size_t)-1;
+	while (++i < env->stack.n && (stack = ft_vector_get(&env->stack, i)))
 	{
-		stack = list->content;
 		glBindBuffer(GL_ARRAY_BUFFER, stack->v_id);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 		glBindBuffer(GL_ARRAY_BUFFER, stack->vt_id);
 		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, NULL);
 		glBindBuffer(GL_ARRAY_BUFFER, stack->vn_id);
 		glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-		if (stack->mat && stack->mat->texture[0])
-			glBindTexture(GL_TEXTURE_2D, stack->mat->texture[0]->id);
-		if (stack->mat && stack->mat->texture[1])
-			glBindTexture(GL_TEXTURE_2D, stack->mat->texture[1]->id);
-		if (stack->mat && stack->mat->texture[2])
-			glBindTexture(GL_TEXTURE_2D, stack->mat->texture[2]->id);
-		glDrawArrays(GL_TRIANGLES, 0, 3 * stack->n_f);
-		list = list->next;
+		glUniform1i(env->tex_id[0], 0);
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, stack->mat->texture[0]->id);
+		glUniform1i(env->tex_id[1], 1);
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_2D, stack->mat->texture[1]->id);
+		glUniform1i(env->tex_id[2], 2);
+		glActiveTexture(GL_TEXTURE2);
+		glBindTexture(GL_TEXTURE_2D, stack->mat->texture[2]->id);
+		glDrawArrays(env->draw_mode, 0, 3 * stack->n_f);
 	}
 }
 
@@ -101,6 +102,7 @@ int		main(int argc, char **argv)
 		env = init_env();
 		env->path = get_path(argv[1]);
 		load_obj(env, argv[1]);
+		ft_putchar('\n');
 		while (!env->stop)
 		{
 			while (SDL_PollEvent(&env->win.events))
@@ -109,7 +111,7 @@ int		main(int argc, char **argv)
 			render_stacks(env);
 			SDL_GL_SwapWindow(env->win.win);
 			set_sleep();
-			env->quat = mult_quat(env->quat, new_quat(env->rot_speed.z,
+			env->quat = mult_quat(env->quat, new_quat(env->rot_speed.x,
 				env->rot_speed.y, env->rot_speed.z));
 		}
 	}

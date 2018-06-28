@@ -6,11 +6,25 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 15:08:51 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/27 13:25:00 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/28 10:46:34 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "scop.h"
+
+void	error_2(int error, void *param)
+{
+	if (error == 9)
+		ft_printf("invalid file %s", param);
+	else if (error == 100)
+		ft_printf("instruction %s not recognized", param);
+	else if (error == 101)
+		ft_putstr("wrong id in object, aborting");
+	else if (error == 102)
+		ft_printf("cannot find material %s", param);
+	else
+		ft_putstr("unknown error");
+}
 
 void	error(int error, void *param, char state)
 {
@@ -33,16 +47,8 @@ void	error(int error, void *param, char state)
 		ft_printf("cannot create opengl context %s", SDL_GetError());
 	else if (error == 8)
 		ft_printf("cannot set attribute: %s", SDL_GetError());
-	else if (error == 9)
-		ft_printf("invalid file %s", param);
-	else if (error == 100)
-		ft_printf("instruction %s not recognized", param);
-	else if (error == 101)
-		ft_putstr("wrong id in object, aborting");
-	else if (error == 102)
-		ft_printf("cannot find material %s", param);
 	else
-		ft_putstr("unknown error");
+		error_2(error, param);
 	ft_putstr("\033[0m\n");
 	if (state)
 		exit(1);

@@ -16,6 +16,7 @@
 
 in vec2		vt;
 in vec3		vn;
+in vec3		pos;
 
 out vec4	color;
 
@@ -23,7 +24,6 @@ uniform sampler2D	ka;
 uniform sampler2D	kd;
 uniform sampler2D	ks;
 uniform mat3		light;
-uniform vec3		position;
 uniform vec3		camera;
 
 void	main()
@@ -31,9 +31,9 @@ void	main()
 	vec4	color_ambient = texture(ka, vt).rgba;
 	vec4	color_diffuse = texture(kd, vt).rgba;
 	vec4	color_specular = texture(ks, vt).rgba;
-	vec3	reflected = normalize(normalize(position - camera) - 2 * vn * dot(normalize(position - camera), vn));
-	float	diffuse = dot(normalize(light[POS] - position), vn);
-	float	specular = pow(dot(normalize(camera - position), reflected), ALPHA);
+	vec3	reflected = normalize(normalize(pos - camera) - 2 * vn * dot(normalize(pos - camera), vn));
+	float	diffuse = dot(normalize(light[POS] - pos), vn);
+	float	specular = pow(dot(normalize(camera - pos), reflected), ALPHA);
 
 	if (diffuse < 0)
 	{
@@ -42,8 +42,7 @@ void	main()
 	}
 	else if (specular < 0)
 		specular = 0;
-	color.a = 1 -
-		(1 - color_ambient.a) * light[INTENSITY][AMBIENT];
+	color.a = 1;
 	color.r =
 		color_ambient.r * light[INTENSITY][AMBIENT] * light[COLOR][RED] +
 		color_diffuse.r * light[INTENSITY][DIFFUSE] * light[COLOR][RED] * diffuse +

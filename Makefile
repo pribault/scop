@@ -6,23 +6,23 @@
 #    By: pribault <pribault@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/27 13:38:44 by pribault          #+#    #+#              #
-#    Updated: 2018/06/27 20:46:40 by pribault         ###   ########.fr        #
+#    Updated: 2018/06/28 13:58:47 by pribault         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = scop
 CC = gcc
-FLAGS = -Wall -Wextra
+FLAGS = -Wall -Wextra -Werror
 ARCH =	$(shell uname -s)
 ifeq ($(ARCH), Darwin)
-ENDFLAGS = -L libft -lft -framework OpenGL -lSDL2 -lSDL2_image -lm -Ofast
+ENDFLAGS = -L libft -lft -framework OpenGL -lSDL2 -lSDL2_image -lm -Ofast -g -fsanitize=address
 else
 ifeq ($(ARCH), linux)
 ENDFLAGS = -L libft -lft -lGL -lSDL2 -lSDL2_image -lm -Ofast
 endif
 endif
 INCLUDE = scop.h matrix.h vector.h bmp.h
-SRC =	scop.c error.c window.c load.c load2.c\
+SRC =	scop.c error.c window.c load.c load2.c events_2.c\
 		bmp_loader.c load_mtl.c buffer.c events.c\
 		matrix/new.c matrix/clean.c matrix/set_id.c\
 		matrix/mat_x_mat.c matrix/mat_x_vec.c\
@@ -34,14 +34,14 @@ SRC =	scop.c error.c window.c load.c load2.c\
 		vector/quaternion.c vector/mult2.c
 OBJ = $(sort $(SRC:%.c=src/%.o))
 N = 0
-JOBS = 4
+JOBS = 1
 
 .PHONY: all clean fclean re libft
 
 all: libft
 	@make $(NAME) -j $(JOBS)
 
-%.o: %.c $(INCLUDE:%.h=include/%.h)
+%.o: %.c $(INCLUDE:%.h=include/%.h) Makefile
 	@echo "\033[38;5;214mcompiling $@\033[0m"
 	@$(CC) $(FLAGS) -I include -I libft/include -o $@ -c $<
 	@$(eval N=$(shell echo $$(($(N)+1))))
