@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 14:55:02 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/28 17:23:47 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/29 00:33:40 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #  include <OpenGL/gl3.h>
 # else
 #  ifdef __linux__
-#   include <GL/gl3.h>
+#   include <GL/gl.h>
 #  endif
 # endif
 # include <SDL2/SDL.h>

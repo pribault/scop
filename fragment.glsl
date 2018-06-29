@@ -35,24 +35,26 @@ void	main()
 	float	diffuse = dot(normalize(light[POS] - pos), vn);
 	float	specular = pow(dot(normalize(camera - pos), reflected), ALPHA);
 
-	if (diffuse < 0)
+	if (diffuse < 0 || isinf(diffuse) || isnan(diffuse))
 	{
 		diffuse = 0;
 		specular = 0;
 	}
-	else if (specular < 0)
+	else if (specular < 0 || isinf(specular) || isnan(specular))
 		specular = 0;
+
+	color.r = light[COLOR][RED] * (
+		color_ambient.r * light[INTENSITY][AMBIENT] +
+		color_diffuse.r * light[INTENSITY][DIFFUSE] * diffuse +
+		color_specular.r * light[INTENSITY][SPECULAR] * specular);
+	color.g = light[COLOR][GREEN] * (
+		color_ambient.g * light[INTENSITY][AMBIENT] +
+		color_diffuse.g * light[INTENSITY][DIFFUSE] * diffuse +
+		color_specular.g * light[INTENSITY][SPECULAR] * specular);
+	color.b = light[COLOR][BLUE] * (
+		color_ambient.b * light[INTENSITY][AMBIENT] +
+		color_diffuse.b * light[INTENSITY][DIFFUSE] * diffuse +
+		color_specular.b * light[INTENSITY][SPECULAR] * specular);
+
 	color.a = 1;
-	color.r =
-		color_ambient.r * light[INTENSITY][AMBIENT] * light[COLOR][RED] +
-		color_diffuse.r * light[INTENSITY][DIFFUSE] * light[COLOR][RED] * diffuse +
-		color_specular.r * light[INTENSITY][SPECULAR] * light[COLOR][RED] * specular;
-	color.g =
-		color_ambient.g * light[INTENSITY][AMBIENT] * light[COLOR][GREEN] +
-		color_diffuse.g * light[INTENSITY][DIFFUSE] * light[COLOR][GREEN] * diffuse +
-		color_specular.g * light[INTENSITY][SPECULAR] * light[COLOR][GREEN] * specular;
-	color.b =
-		color_ambient.b * light[INTENSITY][AMBIENT] * light[COLOR][BLUE] +
-		color_diffuse.b * light[INTENSITY][DIFFUSE] * light[COLOR][BLUE] * diffuse +
-		color_specular.b * light[INTENSITY][SPECULAR] * light[COLOR][BLUE] * specular;
 }

@@ -6,19 +6,19 @@
 #    By: pribault <pribault@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/27 13:38:44 by pribault          #+#    #+#              #
-#    Updated: 2018/06/28 13:58:47 by pribault         ###   ########.fr        #
+#    Updated: 2018/06/29 00:41:34 by pribault         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = scop
 CC = gcc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -Ofast -g -fsanitize=address
 ARCH =	$(shell uname -s)
 ifeq ($(ARCH), Darwin)
-ENDFLAGS = -L libft -lft -framework OpenGL -lSDL2 -lSDL2_image -lm -Ofast -g -fsanitize=address
+ENDFLAGS = -L libft -lft -framework OpenGL -lSDL2 -lSDL2_image -lm
 else
-ifeq ($(ARCH), linux)
-ENDFLAGS = -L libft -lft -lGL -lSDL2 -lSDL2_image -lm -Ofast
+ifeq ($(ARCH), Linux)
+ENDFLAGS = -L libft -lft -lGL -lSDL2 -lSDL2_image -lm
 endif
 endif
 INCLUDE = scop.h matrix.h vector.h bmp.h
