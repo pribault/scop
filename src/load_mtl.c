@@ -6,71 +6,28 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 17:04:40 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/29 00:35:33 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/29 13:52:00 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "scop.h"
 
-char	*get_path(char *file)
-{
-	int		i;
-	char	*path;
-
-	i = ft_strlen(file) - 1;
-	while (i > 0 && file[i] != '/')
-		i--;
-	if (file[i] == '/')
-	{
-		path = (char*)malloc(i + 1);
-		ft_memcpy(path, file, i);
-		path[i] = '\0';
-	}
-	else
-		return ("");
-	return (path);
-}
-
-void	invert(t_c *c, Uint8 bpp)
-{
-	Uint8	tmp;
-
-	tmp = c->r;
-	c->r = c->b;
-	c->b = tmp;
-	if (bpp == 3)
-		c->a = 255;
-}
-
 t_texture	*load_png(char *name)
 {
 	SDL_Surface	*surface;
 	t_texture	*new;
-	Uint8		bpp;
-	size_t		i[2];
 
-	if (!(surface = IMG_Load(name)))
-		return (NULL);
-	bpp = surface->format->BytesPerPixel;
-	if (!(new = (t_texture *)malloc(sizeof(t_texture))) ||
-		!(new->img = (t_c *)malloc(sizeof(t_c) * surface->w * surface->h)))
+	if (!(surface = IMG_Load(name)) ||
+		!(new = (t_texture *)malloc(sizeof(t_texture))) ||
+		!(new->img = (t_c *)malloc(sizeof(t_c) * surface->w * surface->h)) ||
+		!(new->name = ft_strdup(name)))
+	{
 		error(1, NULL, 1);
-	new->name = ft_strdup(name);
+		return (NULL);
+	}
 	new->w = surface->w;
 	new->h = surface->h;
-	ft_bzero(new->img, sizeof(t_c) * new->w * new->h);
-	i[0] = (size_t)-1;
-	while (++i[0] < new->h)
-	{
-		i[1] = (size_t)-1;
-		while (++i[1] < new->w)
-		{
-			ft_memcpy(&new->img[i[0] * new->w + i[1]],
-				&((Uint8*)surface->pixels)[((new->h - i[0] - 1) * new->w +
-					i[1]) * bpp], bpp);
-			invert(&new->img[i[0] * new->w + i[1]], bpp);
-		}
-	}
+	invert_texture(new, surface);
 	SDL_FreeSurface(surface);
 	return (new);
 }
@@ -103,7 +60,7 @@ t_texture	*get_texture(t_vector *vec, char *name, char *file)
 	return (current);
 }
 
-void	mtl_treat_2(t_buffer *list, char **params, char *file, size_t len)
+void		mtl_treat_2(t_buffer *list, char **params, char *file, size_t len)
 {
 	if (!ft_strcmp(params[0], "map_Ka") && len == 2 && list->mat.n)
 		((t_mat*)ft_vector_get(&list->mat, list->mat.n - 1))->texture[0] =
@@ -118,7 +75,7 @@ void	mtl_treat_2(t_buffer *list, char **params, char *file, size_t len)
 		error(100, params[0], 0);
 }
 
-void	mtl_treat(t_buffer *list, char **params, char *file, size_t len)
+void		mtl_treat(t_buffer *list, char **params, char *file, size_t len)
 {
 	t_mat	new;
 
@@ -141,7 +98,7 @@ void	mtl_treat(t_buffer *list, char **params, char *file, size_t len)
 		mtl_treat_2(list, params, file, len);
 }
 
-void	load_mtllib(t_buffer *list, char *file)
+void		load_mtllib(t_buffer *list, char *file)
 {
 	size_t	len;
 	char	**params;

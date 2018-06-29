@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 19:27:45 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/29 12:23:53 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/29 14:20:48 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,11 @@ void	add_elem(t_buffer *list, char *param1, char *param2, char *param3)
 	while (++i < 3)
 	{
 		get_numbers(params[i], n);
+		f.vt[i] = (t_vec2){(t_type)(rand() % 2) / 2, (t_type)(rand() % 2) / 2};
 		if (n[0])
 			f.v[i] = *(t_vec3 *)ft_vector_get(&list->v, n[0] - 1);
 		if (n[1])
 			f.vt[i] = *(t_vec2 *)ft_vector_get(&list->vt, n[1] - 1);
-		else
-			f.vt[i] = (t_vec2){(rand() % 2) / (t_type)2,
-				(rand() % 2) / (t_type)2};
 		if (n[2])
 			f.vn[i] = *(t_vec3 *)ft_vector_get(&list->vn, n[2] - 1);
 		else
@@ -97,19 +95,33 @@ void	treat_params(t_env *env, t_buffer *list, char **params, size_t len)
 		add_elem(list, params[1], params[3], params[4]);
 }
 
+static t_c			g_default_color[4] = {
+	{255, 255, 255, 0},
+	{128, 128, 128, 0},
+	{128, 128, 128, 0},
+	{0, 0, 0, 0}
+};
+
+static t_texture	g_default_texture = {
+	"default_white",
+	2,
+	2,
+	(t_c *)&g_default_color,
+	0
+};
+
+static t_mat		g_default_mat = {
+	"default",
+	{&g_default_texture, &g_default_texture, &g_default_texture},
+	{1, 1, 1},
+	{1, 1, 1},
+	{1, 1, 1},
+	0,
+	0
+};
+
 void	init_buffer(t_env *env, t_buffer *buffer)
 {
-	static t_c			default_color[4] = {
-		{255, 255, 255, 0},
-		{128, 128, 128, 0},
-		{128, 128, 128, 0},
-		{0, 0, 0, 0}
-	};
-	static t_texture	default_texture = {"default_white", 2, 2,
-		(t_c *)&default_color, 0};
-	static t_mat		default_mat = {"default", {&default_texture,
-		&default_texture, &default_texture}, {1, 1, 1}, {1, 1, 1}, {1, 1, 1},
-		0, 0};
 	t_stack				stack;
 
 	ft_vector_init(&buffer->v, ALLOC_MALLOC, sizeof(t_vec3));
@@ -118,9 +130,9 @@ void	init_buffer(t_env *env, t_buffer *buffer)
 	ft_vector_init(&buffer->f, ALLOC_MALLOC, sizeof(t_elem));
 	ft_vector_init(&buffer->mat, ALLOC_MALLOC, sizeof(t_mat));
 	ft_vector_init(&buffer->texture, ALLOC_MALLOC, sizeof(t_texture));
-	ft_vector_add(&buffer->mat, &default_mat);
-	default_texture.id = create_image_buffer(&default_texture);
-	ft_vector_add(&buffer->texture, &default_texture);
+	ft_vector_add(&buffer->mat, &g_default_mat);
+	g_default_texture.id = create_image_buffer(&g_default_texture);
+	ft_vector_add(&buffer->texture, &g_default_texture);
 	ft_bzero(&stack, sizeof(t_stack));
 	stack.mat = get_mat(&buffer->mat, "default");
 	ft_vector_add(&env->stack, &stack);

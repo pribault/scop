@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 14:55:02 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/29 00:33:40 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/29 13:52:37 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,6 +172,7 @@ char				*get_path(char *file);
 t_mat				*get_mat(t_vector *vec, char *name);
 void				add_vector(t_vector *vec, char **params, Uint8 n);
 void				get_numbers(char *params, size_t *n);
+void				invert_texture(t_texture *texture, SDL_Surface *surface);
 void				check_materials(t_buffer *buffer);
 
 void				error(int error, void *param, char state);

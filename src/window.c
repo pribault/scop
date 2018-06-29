@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 15:08:51 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/28 17:22:15 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/29 14:22:11 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ t_env	*init_env(void)
 	env->dir = normalize_vec3(new_vec3(1, 0, 0));
 	env->light.pos = new_vec3(0, 100, 0);
 	env->light.color = new_vec3(1, 1, 1);
-	env->light.i = new_vec3(0.42, 0.6, 0.1);
+	env->light.i = new_vec3(0.42, 0.6, 0.2);
 	env->quat = new_quat(0, 0, 0);
 	env->obj_pos = new_vec3(0, 0, 0);
 	env->size = new_vec3(1, 1, 1);

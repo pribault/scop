@@ -6,7 +6,7 @@
 #    By: pribault <pribault@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/27 13:38:44 by pribault          #+#    #+#              #
-#    Updated: 2018/06/29 00:41:34 by pribault         ###   ########.fr        #
+#    Updated: 2018/06/29 13:51:40 by pribault         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ endif
 endif
 INCLUDE = scop.h matrix.h vector.h bmp.h
 SRC =	scop.c error.c window.c load.c load2.c events_2.c\
-		bmp_loader.c load_mtl.c buffer.c events.c\
+		bmp_loader.c load_mtl.c buffer.c events.c load_mtl_2.c\
 		matrix/new.c matrix/clean.c matrix/set_id.c\
 		matrix/mat_x_mat.c matrix/mat_x_vec.c\
 		matrix/debug.c matrix/lookat.c\

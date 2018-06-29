@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/27 13:38:34 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/28 17:24:00 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/29 13:42:48 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,10 @@ int		rot_event(t_env *env, SDL_Event *event)
 
 void	events(t_env *env, SDL_Event *event)
 {
-	if (event->type == SDL_QUIT)
+	if (event->type == SDL_QUIT ||
+		(event->type == SDL_WINDOWEVENT &&
+		event->window.event == SDL_WINDOWEVENT_CLOSE))
 		env->stop |= 1;
-	else if (event->type == SDL_WINDOWEVENT)
-	{
-		if (event->window.event == SDL_WINDOWEVENT_CLOSE)
-			env->stop |= 1;
-	}
 	else if (event->type == SDL_KEYDOWN)
 	{
 		if (event->key.keysym.sym == SDLK_ESCAPE)
