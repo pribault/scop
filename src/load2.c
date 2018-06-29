@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 18:16:11 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/28 17:16:59 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/29 12:17:19 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,9 @@ t_texture	*gen_texture_from_color(t_buffer *buffer, t_vec3 *color)
 	if (!(texture.name = ft_joinf("%p", color)) ||
 		!(texture.img = malloc(sizeof(t_c))))
 		error(1, NULL, 1);
-	if (!color->x && !color->y && !color->z)
-	{
-		texture.img->r = 255;
-		texture.img->g = 255;
-		texture.img->b = 255;
-	}
-	else
-	{
-		texture.img->r = color->x * 255;
-		texture.img->g = color->y * 255;
-		texture.img->b = color->z * 255;
-	}
+	texture.img->r = color->x * 255;
+	texture.img->g = color->y * 255;
+	texture.img->b = color->z * 255;
 	texture.img->a = 0;
 	texture.id = create_image_buffer(&texture);
 	ft_vector_add(&buffer->texture, &texture);

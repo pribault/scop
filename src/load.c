@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 19:27:45 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/28 16:59:19 by pribault         ###   ########.fr       */
+/*   Updated: 2018/06/29 12:23:53 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ void	add_elem(t_buffer *list, char *param1, char *param2, char *param3)
 			f.v[i] = *(t_vec3 *)ft_vector_get(&list->v, n[0] - 1);
 		if (n[1])
 			f.vt[i] = *(t_vec2 *)ft_vector_get(&list->vt, n[1] - 1);
+		else
+			f.vt[i] = (t_vec2){(rand() % 2) / (t_type)2,
+				(rand() % 2) / (t_type)2};
 		if (n[2])
 			f.vn[i] = *(t_vec3 *)ft_vector_get(&list->vn, n[2] - 1);
 		else
@@ -96,9 +99,14 @@ void	treat_params(t_env *env, t_buffer *list, char **params, size_t len)
 
 void	init_buffer(t_env *env, t_buffer *buffer)
 {
-	static t_c			default_color = {255, 255, 255, 255};
-	static t_texture	default_texture = {"default_white", 1, 1,
-		&default_color, 0};
+	static t_c			default_color[4] = {
+		{255, 255, 255, 0},
+		{128, 128, 128, 0},
+		{128, 128, 128, 0},
+		{0, 0, 0, 0}
+	};
+	static t_texture	default_texture = {"default_white", 2, 2,
+		(t_c *)&default_color, 0};
 	static t_mat		default_mat = {"default", {&default_texture,
 		&default_texture, &default_texture}, {1, 1, 1}, {1, 1, 1}, {1, 1, 1},
 		0, 0};
@@ -111,6 +119,7 @@ void	init_buffer(t_env *env, t_buffer *buffer)
 	ft_vector_init(&buffer->mat, ALLOC_MALLOC, sizeof(t_mat));
 	ft_vector_init(&buffer->texture, ALLOC_MALLOC, sizeof(t_texture));
 	ft_vector_add(&buffer->mat, &default_mat);
+	default_texture.id = create_image_buffer(&default_texture);
 	ft_vector_add(&buffer->texture, &default_texture);
 	ft_bzero(&stack, sizeof(t_stack));
 	stack.mat = get_mat(&buffer->mat, "default");
