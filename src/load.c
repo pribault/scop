@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 19:27:45 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/29 14:20:48 by pribault         ###   ########.fr       */
+/*   Updated: 2018/08/28 11:36:53 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ void	treat_params(t_env *env, t_buffer *list, char **params, size_t len)
 	{
 		alloc_stack(env, list);
 		ft_bzero(&stack, sizeof(t_stack));
-		stack.mat = get_mat(&list->mat, params[1]);
-		ft_vector_add(&env->stack, &stack);
+		if ((stack.mat = get_mat(&list->mat, params[1])))
+			ft_vector_add(&env->stack, &stack);
 	}
 	else if (!ft_strcmp(params[0], "f") && (len == 4 || len == 5))
 		add_elem(list, params[1], params[2], params[3]);
@@ -157,11 +157,9 @@ void	load_obj(t_env *env, char *file)
 		ft_free_array((void**)array, len + 1);
 		free(line);
 	}
+	if (line)
+		free(line);
 	alloc_stack(env, &env->buffer);
-	ft_vector_del(&env->buffer.v);
-	ft_vector_del(&env->buffer.vt);
-	ft_vector_del(&env->buffer.vn);
-	ft_vector_del(&env->buffer.f);
 	close(fd);
 	check_materials(&env->buffer);
 }

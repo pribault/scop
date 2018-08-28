@@ -32,7 +32,7 @@ vec3	rotate(vec3 vec, vec4 quat)
 
 void main()
 {
-	pos = rotate(v, quaternion) * size + position;
+	pos = rotate(v * size, quaternion) + position;
 	gl_Position = MVP * vec4(pos, 1);
 	vt = vtin;
 	vn = rotate(vnin, quaternion);

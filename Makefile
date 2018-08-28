@@ -6,13 +6,13 @@
 #    By: pribault <pribault@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/27 13:38:44 by pribault          #+#    #+#              #
-#    Updated: 2018/06/29 13:51:40 by pribault         ###   ########.fr        #
+#    Updated: 2018/08/28 11:13:59 by pribault         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = scop
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -Ofast -g -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -Ofast
 ARCH =	$(shell uname -s)
 ifeq ($(ARCH), Darwin)
 ENDFLAGS = -L libft -lft -framework OpenGL -lSDL2 -lSDL2_image -lm
