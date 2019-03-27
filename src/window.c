@@ -37,6 +37,10 @@ void	init_sdl(t_win *win)
 		error(6, NULL, 1);
 	if (!(win->context = SDL_GL_CreateContext(win->win)))
 		error(7, NULL, 1);
+#ifdef __LINUX__
+	if (glewInit() != GLEW_OK)
+		error(3, NULL, 1);
+#endif
 }
 
 char	*get_file_content(char *file)
@@ -88,6 +92,8 @@ void	init_opengl(t_env *env)
 	glDepthFunc(GL_LESS);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_BACK);
 	glGenVertexArrays(1, &env->vao);
 	glBindVertexArray(env->vao);
 	glUseProgram(env->shaders.program);

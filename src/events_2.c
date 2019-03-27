@@ -78,9 +78,17 @@ int		resize_event(t_env *env, SDL_Event *event)
 int		number_event(t_env *env, SDL_Event *event)
 {
 	if (event->key.keysym.sym == SDLK_1)
+	{
+		glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 		env->draw_mode = GL_TRIANGLES;
+	}
 	else if (event->key.keysym.sym == SDLK_2)
-		env->draw_mode = GL_LINES;
+	{
+		glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+		env->draw_mode = GL_TRIANGLES;
+	}
+	else if (event->key.keysym.sym == SDLK_3)
+		env->draw_mode = GL_POINTS;
 	else
 		return (-1);
 	return (0);

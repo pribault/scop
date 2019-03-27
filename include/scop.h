@@ -18,7 +18,7 @@
 #  include <OpenGL/gl3.h>
 # else
 #  ifdef __linux__
-#   include <GL/gl.h>
+#   include <GL/glew.h>
 #  endif
 # endif
 # include <SDL2/SDL.h>

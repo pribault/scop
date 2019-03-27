@@ -12,13 +12,13 @@
 
 NAME = scop
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -Ofast
+FLAGS = -Wall -Wextra -Werror -Ofast -O3
 ARCH =	$(shell uname -s)
 ifeq ($(ARCH), Darwin)
 ENDFLAGS = -L libft -lft -framework OpenGL -lSDL2 -lSDL2_image -lm
 else
 ifeq ($(ARCH), Linux)
-ENDFLAGS = -L libft -lft -lGL -lSDL2 -lSDL2_image -lm
+ENDFLAGS = -L libft -lft -lGL -lGLEW -lSDL2 -lSDL2_image -lm
 endif
 endif
 INCLUDE = scop.h matrix.h vector.h bmp.h
@@ -34,7 +34,7 @@ SRC =	scop.c error.c window.c load.c load2.c events_2.c\
 		vector/quaternion.c vector/mult2.c
 OBJ = $(sort $(SRC:%.c=src/%.o))
 N = 0
-JOBS = 1
+JOBS = 4
 
 .PHONY: all clean fclean re libft
 
