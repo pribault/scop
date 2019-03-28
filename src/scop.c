@@ -25,16 +25,24 @@ void	set_sleep(void)
 		usleep(1000000 / FPS - diff);
 }
 
-t_mat4	create_mvp(t_env *env)
+void	bind_mvp(t_env *env)
 {
-	t_mat4	m;
-	t_mat4	v;
-	t_mat4	p;
+	t_mat4	model;
+	t_mat4	view;
+	t_mat4	projection;
 
-	set_id_mat4(&m, 1);
-	v = lookat(env->pos, add_vec3(env->pos, env->dir), new_vec3(0, 1, 0));
-	p = perspective(45, 16.0 / 9.0, 1, 1000);
-	return (mat_4_mat(m, mat_4_mat(v, p)));
+	set_id_mat4(&model, 1);
+	model.x.x = env->size.x;
+	model.y.y = env->size.y;
+	model.z.z = env->size.z;
+	model.w.x = env->obj_pos.x;
+	model.w.y = env->obj_pos.y;
+	model.w.z = env->obj_pos.z;
+	view = lookat(env->pos, add_vec3(env->pos, env->dir), new_vec3(0, 1, 0));
+	projection = perspective(45, 16.0 / 9.0, 1, 1000);
+	glUniformMatrix4fv(env->model_id, 1, GL_FALSE, (GLfloat*)&model);
+	glUniformMatrix4fv(env->view_id, 1, GL_FALSE, (GLfloat*)&view);
+	glUniformMatrix4fv(env->projection_id, 1, GL_FALSE, (GLfloat*)&projection);
 }
 
 void	render_stack(t_env *env, t_stack *stack)
@@ -59,12 +67,10 @@ void	render_stack(t_env *env, t_stack *stack)
 
 void	render_stacks(t_env *env)
 {
-	t_mat4			mvp;
 	t_stack			*stack;
 	size_t			i;
 
-	mvp = create_mvp(env);
-	glUniformMatrix4fv(env->mvp_id, 1, GL_FALSE, (GLfloat*)&mvp);
+	bind_mvp(env);
 	glUniformMatrix3fv(env->light_id, 1, GL_FALSE, (GLfloat*)&env->light);
 	glUniform4fv(env->quat_id, 1, (GLfloat *)&env->quat);
 	glUniform3fv(env->size_id, 1, (GLfloat *)&env->size);

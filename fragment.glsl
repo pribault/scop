@@ -43,18 +43,9 @@ void	main()
 	else if (specular < 0 || isinf(specular) || isnan(specular))
 		specular = 0;
 
-	color.r = light[COLOR][RED] * (
-		color_ambient.r * light[INTENSITY][AMBIENT] +
-		color_diffuse.r * light[INTENSITY][DIFFUSE] * diffuse +
-		color_specular.r * light[INTENSITY][SPECULAR] * specular);
-	color.g = light[COLOR][GREEN] * (
-		color_ambient.g * light[INTENSITY][AMBIENT] +
-		color_diffuse.g * light[INTENSITY][DIFFUSE] * diffuse +
-		color_specular.g * light[INTENSITY][SPECULAR] * specular);
-	color.b = light[COLOR][BLUE] * (
-		color_ambient.b * light[INTENSITY][AMBIENT] +
-		color_diffuse.b * light[INTENSITY][DIFFUSE] * diffuse +
-		color_specular.b * light[INTENSITY][SPECULAR] * specular);
+	color = light[COLOR][AMBIENT] * light[INTENSITY][AMBIENT] * color_ambient +
+			light[COLOR][DIFFUSE] * light[INTENSITY][DIFFUSE] * color_diffuse * diffuse +
+			light[COLOR][SPECULAR] * light[INTENSITY][SPECULAR] * color_specular * specular;
 
 	color.a = 1;
 }

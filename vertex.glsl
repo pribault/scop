@@ -8,9 +8,9 @@ out vec2	vt;
 out vec3	vn;
 out vec3	pos;
 
-uniform mat4	MVP;
-uniform vec3	position;
-uniform vec3	size;
+uniform mat4	model;
+uniform mat4	view;
+uniform mat4	projection;
 uniform vec4	quaternion;
 
 vec3	rotate(vec3 vec, vec4 quat)
@@ -32,8 +32,8 @@ vec3	rotate(vec3 vec, vec4 quat)
 
 void main()
 {
-	pos = rotate(v * size, quaternion) + position;
-	gl_Position = MVP * vec4(pos, 1);
+	pos = rotate((model * vec4(v, 1)).xyz, quaternion);
+	gl_Position = projection * view * vec4(pos, 1);
 	vt = vtin;
 	vn = rotate(vnin, quaternion);
 }

@@ -97,7 +97,9 @@ void	init_opengl(t_env *env)
 	glGenVertexArrays(1, &env->vao);
 	glBindVertexArray(env->vao);
 	glUseProgram(env->shaders.program);
-	env->mvp_id = glGetUniformLocation(env->shaders.program, "MVP");
+	env->model_id = glGetUniformLocation(env->shaders.program, "model");
+	env->view_id = glGetUniformLocation(env->shaders.program, "view");
+	env->projection_id = glGetUniformLocation(env->shaders.program, "projection");
 	env->light_id = glGetUniformLocation(env->shaders.program, "light");
 	env->quat_id = glGetUniformLocation(env->shaders.program, "quaternion");
 	env->pos_id = glGetUniformLocation(env->shaders.program, "position");

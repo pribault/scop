@@ -1,0 +1,157 @@
+#
+# C_MIDNA_PRINCESS.mtl
+#
+
+newmtl surface_000
+illum 2
+Kd 0.800000 0.800000 0.800000
+Ka 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Ka c_midna_princess.bin_2.png
+map_Kd c_midna_princess.bin_2.png
+map_Ks c_midna_princess.bin_2.png
+
+newmtl surface_001
+illum 2
+Kd 0.800000 0.800000 0.800000
+Ka 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Ka c_midna_princess.bin_2.png
+map_Kd c_midna_princess.bin_2.png
+map_Ks c_midna_princess.bin_2.png
+
+newmtl surface_002
+illum 2
+Kd 0.800000 0.800000 0.800000
+Ka 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Ka c_midna_princess.bin_2.png
+map_Kd c_midna_princess.bin_2.png
+map_Ks c_midna_princess.bin_2.png
+
+newmtl surface_003
+illum 2
+Kd 0.800000 0.800000 0.800000
+Ka 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Ka c_midna_princess.bin_2.png
+map_Kd c_midna_princess.bin_2.png
+map_Ks c_midna_princess.bin_2.png
+
+newmtl surface_004
+illum 2
+Kd 0.800000 0.800000 0.800000
+Ka 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Ka c_midna_princess.bin_2.png
+map_Kd c_midna_princess.bin_2.png
+map_Ks c_midna_princess.bin_2.png
+
+newmtl surface_005
+illum 2
+Kd 0.800000 0.800000 0.800000
+Ka 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Ka c_midna_princess.bin_2.png
+map_Kd c_midna_princess.bin_2.png
+map_Ks c_midna_princess.bin_2.png
+
+newmtl surface_006
+illum 2
+Kd 0.800000 0.800000 0.800000
+Ka 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Ka c_midna_princess.bin_2.png
+map_Kd c_midna_princess.bin_2.png
+map_Ks c_midna_princess.bin_2.png
+
+newmtl surface_007
+illum 2
+Kd 0.800000 0.800000 0.800000
+Ka 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Ka c_midna_princess.bin_2.png
+map_Kd c_midna_princess.bin_2.png
+map_Ks c_midna_princess.bin_2.png
+
+newmtl surface_008
+illum 2
+Kd 0.800000 0.800000 0.800000
+Ka 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Ka c_midna_princess.bin_2.png
+map_Kd c_midna_princess.bin_2.png
+map_Ks c_midna_princess.bin_2.png
+
+newmtl surface_009
+illum 2
+Kd 0.800000 0.800000 0.800000
+Ka 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Ka c_midna_princess.bin_2.png
+map_Kd c_midna_princess.bin_2.png
+map_Ks c_midna_princess.bin_2.png
+
+newmtl surface_010
+illum 2
+Kd 0.800000 0.800000 0.800000
+Ka 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Ka c_midna_princess.bin_2.png
+map_Kd c_midna_princess.bin_2.png
+map_Ks c_midna_princess.bin_2.png
+
+newmtl surface_011
+illum 2
+Kd 0.800000 0.800000 0.800000
+Ka 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Ka c_midna_princess.bin_2.png
+map_Kd c_midna_princess.bin_2.png
+map_Ks c_midna_princess.bin_2.png
+
+newmtl surface_012
+illum 2
+Kd 0.800000 0.800000 0.800000
+Ka 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Ka c_midna_princess.bin_2.png
+map_Kd c_midna_princess.bin_2.png
+map_Ks c_midna_princess.bin_2.png
+
+newmtl surface_013
+illum 2
+Kd 0.800000 0.800000 0.800000
+Ka 0.200000 0.200000 0.200000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ns 0.000000
+map_Ka c_midna_princess.bin_2.png
+map_Kd c_midna_princess.bin_2.png
+map_Ks c_midna_princess.bin_2.png

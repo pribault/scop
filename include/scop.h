@@ -140,7 +140,9 @@ typedef struct		s_env
 	t_vec3			obj_pos;
 	t_vec3			rot_speed;
 	GLuint			light_id;
-	GLuint			mvp_id;
+	GLuint			model_id;
+	GLuint			view_id;
+	GLuint			projection_id;
 	GLuint			quat_id;
 	GLuint			size_id;
 	GLuint			pos_id;
