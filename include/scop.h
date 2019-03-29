@@ -78,6 +78,9 @@ typedef struct		s_shaders
 	GLuint			vertex;
 	GLuint			fragment;
 	GLuint			program;
+	GLuint			depth_vertex;
+	GLuint			depth_fragment;
+	GLuint			depth_program;
 }					t_shaders;
 
 typedef struct		s_elem
@@ -139,26 +142,20 @@ typedef struct		s_env
 	t_vec3			size;
 	t_vec3			obj_pos;
 	t_vec3			rot_speed;
-	GLuint			light_id;
-	GLuint			model_id;
-	GLuint			view_id;
-	GLuint			projection_id;
-	GLuint			quat_id;
-	GLuint			size_id;
-	GLuint			pos_id;
-	GLuint			cam_id;
 	GLuint			vao;
-	GLuint			tex_id[3];
+	GLuint			framebuffer;
+	GLuint			depth_map;
 	t_buffer		buffer;
 	t_vector		stack;
 	t_vec3			pos;
 	t_vec3			dir;
 	t_input			input;
 	GLenum			draw_mode;
+	uint8_t			shadow;
 	char			*path;
 }					t_env;
 
-t_env				*init_env(void);
+void				init_env(t_env	*env);
 
 void				events(t_env *env, SDL_Event *event);
 int					move_event(t_env *env, SDL_Event *event);

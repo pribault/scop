@@ -62,5 +62,6 @@ void			debug_mat4(t_mat4 *mat);
 
 t_mat4			lookat(t_vec3 eye, t_vec3 center, t_vec3 up);
 t_mat4			perspective(t_type fy, t_type a, t_type zn, t_type zf);
+t_mat4			ortho(t_vec2 x, t_vec2 y, t_vec2 z);
 
 #endif

@@ -12,7 +12,7 @@
 
 NAME = scop
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -Ofast -O3
+FLAGS = -Wall -Wextra -Ofast -O3
 ARCH =	$(shell uname -s)
 ifeq ($(ARCH), Darwin)
 ENDFLAGS = -L libft -lft -framework OpenGL -lSDL2 -lSDL2_image -lm
@@ -27,7 +27,7 @@ SRC =	scop.c error.c window.c load.c load2.c events_2.c\
 		matrix/new.c matrix/clean.c matrix/set_id.c\
 		matrix/mat_x_mat.c matrix/mat_x_vec.c\
 		matrix/debug.c matrix/lookat.c\
-		matrix/perspective.c\
+		matrix/perspective.c matrix/ortho.c\
 		vector/new.c vector/normalize.c vector/add.c\
 		vector/sub.c vector/mult.c vector/scalar.c\
 		vector/cross.c vector/debug.c vector/rotate.c\

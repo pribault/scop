@@ -106,6 +106,8 @@ void	events(t_env *env, SDL_Event *event)
 	{
 		if (event->key.keysym.sym == SDLK_ESCAPE)
 			env->stop += (!(env->stop & 1)) ? 1 : 0;
+		if (event->key.keysym.sym == SDLK_p)
+			env->shadow = (env->shadow) ? 0 : 1;
 		else if (!camera_events(env, event))
 			return ;
 		else if (event->key.keysym.sym == SDLK_KP_PLUS)
