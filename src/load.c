@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 19:27:45 by pribault          #+#    #+#             */
-/*   Updated: 2018/08/28 11:36:53 by pribault         ###   ########.fr       */
+/*   Updated: 2019/03/30 12:24:02 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,7 @@ void	load_obj(t_env *env, char *file)
 	if ((fd = open(file, O_RDONLY)) == -1)
 		error(2, file, 1);
 	init_buffer(env, &env->buffer);
+	line = NULL;
 	while (ft_get_next_line(fd, &line) == 1)
 	{
 		array = ft_multisplit(line, SEPARATORS);

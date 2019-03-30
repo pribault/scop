@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 14:54:59 by pribault          #+#    #+#             */
-/*   Updated: 2019/03/30 11:03:49 by pribault         ###   ########.fr       */
+/*   Updated: 2019/03/30 12:07:40 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ int		main(int argc, char **argv)
 {
 	t_env	env;
 
-	char *s = malloc(12);
-	s = NULL;
 	if (argc == 2)
 	{
 		init_env(&env);
