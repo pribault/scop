@@ -6,13 +6,13 @@
 #    By: pribault <pribault@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/27 13:38:44 by pribault          #+#    #+#              #
-#    Updated: 2019/03/30 10:50:42 by pribault         ###   ########.fr        #
+#    Updated: 2019/03/30 11:51:22 by pribault         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = scop
 CC = gcc
-FLAGS = -Wall -Wextra -Ofast -O3
+FLAGS = -Wall -Wextra -Werror -Ofast -O3
 ARCH =	$(shell uname -s)
 ifeq ($(ARCH), Darwin)
 ENDFLAGS = -L libft -lft -framework OpenGL -lSDL2 -lSDL2_image -lm

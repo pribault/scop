@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 10:49:27 by pribault          #+#    #+#             */
-/*   Updated: 2019/03/30 10:54:06 by pribault         ###   ########.fr       */
+/*   Updated: 2019/03/30 11:55:48 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,7 @@ void	render_stacks(t_env *env)
 	bind_mat3(env->shaders.program, "light", (t_mat3 *)&env->light);
 	bind_vec3(env->shaders.program, "camera", &env->pos);
 	bind_vec4(env->shaders.program, "quaternion", &env->quat);
-	if (env->shadow)
-		bind_texture(env->shaders.depth_program, "depthMap", env->depth_map, 0);
+	bind_texture(env->shaders.program, "depthMap", env->depth_map, 0);
 	i = (size_t)-1;
 	while (++i < env->stack.n && (stack = ft_vector_get(&env->stack, i)))
 		render_stack(env, stack);

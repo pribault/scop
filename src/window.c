@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 15:08:51 by pribault          #+#    #+#             */
-/*   Updated: 2019/03/30 10:49:08 by pribault         ###   ########.fr       */
+/*   Updated: 2019/03/30 12:04:36 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	init_env(t_env *env)
 	env->rot_speed = new_vec3(0, ROT_SPEED, 0);
 	env->input = INPUT_LIGHT;
 	env->draw_mode = GL_TRIANGLES;
-	env->shadow = 1;
+	env->shadow = 0;
 	init_opengl(env);
 	ft_vector_init(&env->stack, ALLOC_MALLOC, sizeof(t_stack));
 }
