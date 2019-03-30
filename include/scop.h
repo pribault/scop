@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 14:55:02 by pribault          #+#    #+#             */
-/*   Updated: 2019/03/30 10:53:18 by pribault         ###   ########.fr       */
+/*   Updated: 2019/03/30 12:35:45 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SCOP_H
 
 # include <sys/time.h>
+# include <sys/stat.h>
 # ifdef __APPLE__
 #  include <OpenGL/gl3.h>
 # else

@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 19:27:45 by pribault          #+#    #+#             */
-/*   Updated: 2019/03/30 12:24:02 by pribault         ###   ########.fr       */
+/*   Updated: 2019/03/30 12:37:41 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,12 +140,14 @@ void	init_buffer(t_env *env, t_buffer *buffer)
 
 void	load_obj(t_env *env, char *file)
 {
+	struct stat	buf;
 	size_t		len;
 	char		**array;
 	char		*line;
 	int			fd;
 
-	if ((fd = open(file, O_RDONLY)) == -1)
+	if ((fd = open(file, O_RDONLY)) == -1 || fstat(fd, &buf) ||
+		(buf.st_mode & S_IFMT) != S_IFREG)
 		error(2, file, 1);
 	init_buffer(env, &env->buffer);
 	line = NULL;
