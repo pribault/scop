@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 10:44:56 by pribault          #+#    #+#             */
-/*   Updated: 2019/03/30 12:03:24 by pribault         ###   ########.fr       */
+/*   Updated: 2019/03/30 12:45:41 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 char	*get_file_content(char *file)
 {
-	char	*line;
-	int		fd;
+	struct stat	buf;
+	char		*line;
+	int			fd;
 
 	if (!file)
 		return (NULL);
-	if ((fd = open(file, O_RDONLY)) == -1)
+	if ((fd = open(file, O_RDONLY)) == -1 || fstat(fd, &buf) ||
+		(buf.st_mode & S_IFMT) != S_IFREG)
 		error(2, file, 1);
 	ft_get_all_lines(fd, &line);
 	close(fd);

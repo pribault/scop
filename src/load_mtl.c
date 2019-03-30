@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 17:04:40 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/29 13:52:00 by pribault         ###   ########.fr       */
+/*   Updated: 2019/03/30 12:47:54 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,14 @@ void		mtl_treat(t_buffer *list, char **params, char *file, size_t len)
 
 void		load_mtllib(t_buffer *list, char *file)
 {
-	size_t	len;
-	char	**params;
-	char	*line;
-	int		fd;
+	struct stat	buf;
+	size_t		len;
+	char		**params;
+	char		*line;
+	int			fd;
 
-	if ((fd = open(file, O_RDONLY)) == -1)
+	if ((fd = open(file, O_RDONLY)) == -1 || fstat(fd, &buf) ||
+		(buf.st_mode & S_IFMT) != S_IFREG)
 		error(2, file, 1);
 	while (ft_get_next_line(fd, &line) == 1)
 	{

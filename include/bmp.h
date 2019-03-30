@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 14:12:16 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/28 10:44:30 by pribault         ###   ########.fr       */
+/*   Updated: 2019/03/30 12:58:37 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define BMP_H
 
 # include <SDL2/SDL.h>
+# include <sys/stat.h>
 # include "ft_printf.h"
 
 # define MAGIC	0x4d42
@@ -33,6 +34,8 @@ typedef struct	s_texture
 	Uint16		h;
 	t_c			*img;
 }				t_texture;
+
+# pragma pack(1)
 
 typedef struct	s_file_header
 {
@@ -56,6 +59,8 @@ typedef struct	s_dib_header
 	Uint32		colors;
 	Uint32		importants;
 }				t_dib_header;
+
+# pragma pack()
 
 void			error(int error, void *param, char state);
 
