@@ -6,7 +6,7 @@
 #    By: pribault <pribault@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/27 13:38:44 by pribault          #+#    #+#              #
-#    Updated: 2018/08/28 11:13:59 by pribault         ###   ########.fr        #
+#    Updated: 2019/03/30 10:50:42 by pribault         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,9 @@ ENDFLAGS = -L libft -lft -lGL -lGLEW -lSDL2 -lSDL2_image -lm
 endif
 endif
 INCLUDE = scop.h matrix.h vector.h bmp.h
-SRC =	scop.c error.c window.c load.c load2.c events_2.c\
+SRC =	scop.c error.c window.c load.c load2.c events_2.c opengl.c\
 		bmp_loader.c load_mtl.c buffer.c events.c load_mtl_2.c\
+		draw.c draw_depth.c bind.c\
 		matrix/new.c matrix/clean.c matrix/set_id.c\
 		matrix/mat_x_mat.c matrix/mat_x_vec.c\
 		matrix/debug.c matrix/lookat.c\

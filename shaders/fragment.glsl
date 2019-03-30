@@ -20,14 +20,14 @@ in vec3		pos;
 
 out vec4	color;
 
-uniform sampler2D	ka;
-uniform sampler2D	kd;
-uniform sampler2D	ks;
-uniform sampler2D	depthMap;
-uniform mat3		light;
-uniform mat4		lightView;
-uniform mat4		lightProjection;
-uniform vec3		camera;
+uniform sampler2D		ka;
+uniform sampler2D		kd;
+uniform sampler2D		ks;
+uniform sampler2DShadow	depthMap;
+uniform mat3			light;
+uniform mat4			lightView;
+uniform mat4			lightProjection;
+uniform vec3			camera;
 
 void	main()
 {
@@ -38,9 +38,9 @@ void	main()
 	float	diffuse = dot(normalize(light[POS] - pos), vn);
 	float	specular = pow(dot(normalize(camera - pos), reflected), ALPHA);
 	vec4	depthPos = lightProjection * lightView * vec4(pos, 1);
-	float	depth = texture(depthMap, depthPos.xy).a;
+	float	depth = texture(depthMap, depthPos.xyz);
 
-	if (depth < depthPos.z - 0.01)
+	if (depth < depthPos.z - 0.001)
 	{
 		diffuse = 0;
 		specular = 0;

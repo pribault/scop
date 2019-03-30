@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 14:55:02 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/29 13:52:37 by pribault         ###   ########.fr       */
+/*   Updated: 2019/03/30 10:53:18 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,18 @@ typedef struct		s_env
 }					t_env;
 
 void				init_env(t_env	*env);
+void				init_opengl(t_env *env);
+void				init_shaders(t_shaders *shaders);
+
+void				render_stacks(t_env *env);
+void				render_stacks_depth(t_env *env);
+
+void				bind_mat3(GLuint program, const char *name, t_mat3 *value);
+void				bind_mat4(GLuint program, const char *name, t_mat4 *value);
+void				bind_vec3(GLuint program, const char *name, t_vec3 *value);
+void				bind_vec4(GLuint program, const char *name, t_vec4 *value);
+void				bind_texture(GLuint program, const char *name,
+					GLuint texture, size_t index);
 
 void				events(t_env *env, SDL_Event *event);
 int					move_event(t_env *env, SDL_Event *event);
