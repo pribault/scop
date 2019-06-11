@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 19:27:45 by pribault          #+#    #+#             */
-/*   Updated: 2018/08/28 11:36:53 by pribault         ###   ########.fr       */
+/*   Updated: 2019/06/11 18:29:57 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ void	add_elem(t_buffer *list, char *param1, char *param2, char *param3)
 	{
 		get_numbers(params[i], n);
 		f.vt[i] = (t_vec2){(t_type)(rand() % 2) / 2, (t_type)(rand() % 2) / 2};
-		if (n[0])
-			f.v[i] = *(t_vec3 *)ft_vector_get(&list->v, n[0] - 1);
-		if (n[1])
-			f.vt[i] = *(t_vec2 *)ft_vector_get(&list->vt, n[1] - 1);
-		if (n[2])
+		if (n[0] - 1 >= list->v.n || n[1] - 1 >= list->vt.n)
+			error(9, NULL, 1);
+		f.v[i] = *(t_vec3 *)ft_vector_get(&list->v, n[0] - 1);
+		f.vt[i] = *(t_vec2 *)ft_vector_get(&list->vt, n[1] - 1);
+		if (n[2] - 1 < list->vn.n)
 			f.vn[i] = *(t_vec3 *)ft_vector_get(&list->vn, n[2] - 1);
 		else
 			f.vn[i] = (t_vec3){f.v[i].x, f.v[i].y, f.v[i].z};

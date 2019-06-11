@@ -26,6 +26,11 @@ uniform sampler2D	ks;
 uniform mat3		light;
 uniform vec3		camera;
 
+vec4	multiply(vec4 a, vec4 b)
+{
+	return (vec4(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w));
+}
+
 void	main()
 {
 	vec4	color_ambient = texture(ka, vt).rgba;
@@ -43,9 +48,10 @@ void	main()
 	else if (specular < 0 || isinf(specular) || isnan(specular))
 		specular = 0;
 
-	color = light[COLOR][AMBIENT] * light[INTENSITY][AMBIENT] * color_ambient +
-			light[COLOR][DIFFUSE] * light[INTENSITY][DIFFUSE] * color_diffuse * diffuse +
-			light[COLOR][SPECULAR] * light[INTENSITY][SPECULAR] * color_specular * specular;
+	color = vec4(light[COLOR], 1) *
+		(light[INTENSITY][AMBIENT] * color_ambient +
+		light[INTENSITY][DIFFUSE] * color_diffuse * diffuse +
+		light[INTENSITY][SPECULAR] * color_specular * specular);
 
 	color.a = 1;
 }
