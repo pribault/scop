@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 19:27:45 by pribault          #+#    #+#             */
-/*   Updated: 2019/06/11 18:29:57 by pribault         ###   ########.fr       */
+/*   Updated: 2019/06/12 16:50:47 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,11 @@ void	add_elem(t_buffer *list, char *param1, char *param2, char *param3)
 	{
 		get_numbers(params[i], n);
 		f.vt[i] = (t_vec2){(t_type)(rand() % 2) / 2, (t_type)(rand() % 2) / 2};
-		if (n[0] - 1 >= list->v.n || n[1] - 1 >= list->vt.n)
+		if (n[0] - 1 >= list->v.n)
 			error(9, NULL, 1);
 		f.v[i] = *(t_vec3 *)ft_vector_get(&list->v, n[0] - 1);
-		f.vt[i] = *(t_vec2 *)ft_vector_get(&list->vt, n[1] - 1);
+		if (n[1] - 1 < list->vt.n)
+			f.vt[i] = *(t_vec2 *)ft_vector_get(&list->vt, n[1] - 1);
 		if (n[2] - 1 < list->vn.n)
 			f.vn[i] = *(t_vec3 *)ft_vector_get(&list->vn, n[2] - 1);
 		else
@@ -140,12 +141,14 @@ void	init_buffer(t_env *env, t_buffer *buffer)
 
 void	load_obj(t_env *env, char *file)
 {
+	struct stat	buf;
 	size_t		len;
 	char		**array;
 	char		*line;
 	int			fd;
 
-	if ((fd = open(file, O_RDONLY)) == -1)
+	if ((fd = open(file, O_RDONLY)) == -1 ||
+		fstat(fd, &buf) || (buf.st_mode & S_IFMT) != S_IFREG)
 		error(2, file, 1);
 	init_buffer(env, &env->buffer);
 	while (ft_get_next_line(fd, &line) == 1)
