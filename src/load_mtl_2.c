@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/29 13:51:28 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/29 13:52:58 by pribault         ###   ########.fr       */
+/*   Updated: 2019/06/18 18:17:02 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char		*get_path(char *file)
 		path[i] = '\0';
 	}
 	else
-		return ("");
+		return (ft_strdup(""));
 	return (path);
 }
 

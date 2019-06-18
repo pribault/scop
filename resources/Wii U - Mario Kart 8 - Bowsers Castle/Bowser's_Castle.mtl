@@ -1,0 +1,1173 @@
+# Blender MTL File: 'None'
+# Material Count: 107
+
+newmtl BCChain_Area5
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd bcchain_alb.png
+map_d bcchain_alb.png
+
+newmtl YVrock
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd yv_rock_alb.png
+map_d yv_rock_alb.png
+
+newmtl YVrock_area6
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd yv_rock_alb.png
+map_d yv_rock_alb.png
+
+newmtl door_parts
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd door_parts_alb.png
+map_d door_parts_alb.png
+
+newmtl door_parts_area5
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd door_parts_alb.png
+map_d door_parts_alb.png
+
+newmtl ef_dashboard
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ef_dashboard02_alb.png
+map_d ef_dashboard02_alb.png
+
+newmtl ef_glideboard
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ef_glideboard02_alb.png
+map_d ef_glideboard02_alb.png
+
+newmtl ef_gravityboard
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 1.000000
+illum 1
+
+newmtl ef_lava02
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ef_lava_alb.png
+map_d ef_lava_alb.png
+
+newmtl ef_lavawall02
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ef_lava_alb.png
+map_d ef_lava_alb.png
+
+newmtl ef_lavawall02.002
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ef_lava_alb.png
+map_d ef_lava_alb.png
+
+newmtl ef_lavawall02.003
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ef_lava_alb.png
+map_d ef_lava_alb.png
+
+newmtl ef_lavawall_under
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ef_lava_alb.png
+map_d ef_lava_alb.png
+
+newmtl ef_lavawall_under.002
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ef_lava_alb.png
+map_d ef_lava_alb.png
+
+newmtl gv_NS_mountain04_a0
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd wiigv_ry_mountain_01_alb.png
+map_d wiigv_ry_mountain_01_alb.png
+
+newmtl gv_StartGrid01_a0
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd wiigv_startgrid01_alb.png
+map_d wiigv_startgrid01_alb.png
+
+newmtl gv_StartLine01_a0
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd wiigv_startline01_alb.png
+map_d wiigv_startline01_alb.png
+
+newmtl gv_StartLine02_a0
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd wiigv_startline02_alb.png
+map_d wiigv_startline02_alb.png
+
+newmtl m_BcTank
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd bctank_alb.png
+map_d bctank_alb.png
+
+newmtl m_Body
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd koopastatbody_alb.png
+map_d koopastatbody_alb.png
+
+newmtl m_Cannon_area0
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_cannon_mini_alb.png
+map_d ukc_cannon_mini_alb.png
+
+newmtl map_piston
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd map_piston_alb.png
+map_d map_piston_alb.png
+
+newmtl ukc_KoopaStatGate_nt
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_koopastatgate_alb.png
+map_d ukc_koopastatgate_alb.png
+
+newmtl ukc_NS_Biron01
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ry_biron01_alb.png
+map_d ukc_ry_biron01_alb.png
+
+newmtl ukc_NS_Biron02
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ry_biron02_alb.png
+map_d ukc_ry_biron02_alb.png
+
+newmtl ukc_NS_Meter01
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ry_meter01_alb.png
+map_d ukc_ry_meter01_alb.png
+
+newmtl ukc_NS_pipe02
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ry_pipe02_alb.png
+map_d ukc_ry_pipe02_alb.png
+
+newmtl ukc_NS_pipe02_A5
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ry_pipe02_alb.png
+map_d ukc_ry_pipe02_alb.png
+
+newmtl ukc_NS_pipe02_area5
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ry_pipe02_alb.png
+map_d ukc_ry_pipe02_alb.png
+
+newmtl ukc_NS_pipe03
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ry_pipe03_alb.png
+map_d ukc_ry_pipe03_alb.png
+
+newmtl ukc_NS_pipe03_area5
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ry_pipe03_alb.png
+map_d ukc_ry_pipe03_alb.png
+
+newmtl ukc_Pillar
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_pillar_alb.png
+map_d ukc_pillar_alb.png
+
+newmtl ukc_blackiron_Road
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_blackiron_out_alb.png
+map_d ukc_blackiron_out_alb.png
+
+newmtl ukc_blackiron_out_area0
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_blackiron_out_alb.png
+map_d ukc_blackiron_out_alb.png
+
+newmtl ukc_blackiron_out_area1
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_blackiron_out_alb.png
+map_d ukc_blackiron_out_alb.png
+
+newmtl ukc_blackiron_out_area5
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_blackiron_out_alb.png
+map_d ukc_blackiron_out_alb.png
+
+newmtl ukc_blackiron_out_area6
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_blackiron_out_alb.png
+map_d ukc_blackiron_out_alb.png
+
+newmtl ukc_box_barrel_01
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_box_barrel_01_alb.png
+map_d ukc_box_barrel_01_alb.png
+
+newmtl ukc_box_barrel_01_area5
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_box_barrel_01_alb.png
+map_d ukc_box_barrel_01_alb.png
+
+newmtl ukc_brick_lagre01
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_brick_lagre01_alb.png
+map_d ukc_brick_lagre01_alb.png
+
+newmtl ukc_brickfloor01
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_brickfloor_01_alb.png
+map_d ukc_brickfloor_01_alb.png
+
+newmtl ukc_brickfloor01_area5
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_brickfloor_01_alb.png
+map_d ukc_brickfloor_01_alb.png
+
+newmtl ukc_brickfloor01_out
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_brickfloor_01_alb.png
+map_d ukc_brickfloor_01_alb.png
+
+newmtl ukc_brickset01_area1_road
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_brickset01_alb.png
+map_d ukc_brickset01_alb.png
+
+newmtl ukc_brickset01_area1_road_Gravity
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_brickset01_alb.png
+map_d ukc_brickset01_alb.png
+
+newmtl ukc_brickset01_area1_road_Gravity.001
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_brickset01_alb.png
+map_d ukc_brickset01_alb.png
+
+newmtl ukc_brickset01_area4_road
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_brickset01_alb.png
+map_d ukc_brickset01_alb.png
+
+newmtl ukc_brickset01_area5_road
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_brickset01_alb.png
+map_d ukc_brickset01_alb.png
+
+newmtl ukc_carpet_01
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_carpet_01_alb.png
+map_d ukc_carpet_01_alb.png
+
+newmtl ukc_carpet_01_Gravity
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_carpet_01_alb.png
+map_d ukc_carpet_01_alb.png
+
+newmtl ukc_carpet_01_area5
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_carpet_01_alb.png
+map_d ukc_carpet_01_alb.png
+
+newmtl ukc_carpet_02_area6
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_carpet_02_alb.png
+map_d ukc_carpet_02_alb.png
+
+newmtl ukc_castle_dodai
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_castle_dodai_alb.png
+map_d ukc_castle_dodai_alb.png
+
+newmtl ukc_castle_out_wall
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd kc_wall01_alb.png
+map_d kc_wall01_alb.png
+
+newmtl ukc_castle_wall_02
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_castlewall03_alb.png
+map_d ukc_castlewall03_alb.png
+
+newmtl ukc_castlewall01_area5
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_castlewall01_alb.png
+map_d ukc_castlewall01_alb.png
+
+newmtl ukc_castlewall02
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_castlewall02_alb.png
+map_d ukc_castlewall02_alb.png
+
+newmtl ukc_castlewall02_area4
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_castlewall02_alb.png
+map_d ukc_castlewall02_alb.png
+
+newmtl ukc_castlewall02_area5
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_castlewall02_alb.png
+map_d ukc_castlewall02_alb.png
+
+newmtl ukc_castlewall02_area6
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_castlewall02_alb.png
+map_d ukc_castlewall02_alb.png
+
+newmtl ukc_castlewall02_g_area5
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_castlewall02_g_alb.png
+map_d ukc_castlewall02_g_alb.png
+
+newmtl ukc_ceiling_wood
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ceiling_wood_alb.png
+map_d ukc_ceiling_wood_alb.png
+
+newmtl ukc_chandlier_Frame
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_chandlier_frame_alb.png
+map_d ukc_chandlier_frame_alb.png
+
+newmtl ukc_cmn_wood
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_gatewood_alb.png
+map_d ukc_gatewood_alb.png
+
+newmtl ukc_cmn_wood_area05
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_gatewood_alb.png
+map_d ukc_gatewood_alb.png
+
+newmtl ukc_cmn_wood_area1
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_gatewood_alb.png
+map_d ukc_gatewood_alb.png
+
+newmtl ukc_emblem_face_area1
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_emblem_face_alb.png
+map_d ukc_emblem_face_alb.png
+
+newmtl ukc_emblem_face_out
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_emblem_face_alb.png
+map_d ukc_emblem_face_alb.png
+
+newmtl ukc_emitobj01
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ref_inside00_alb.png
+map_d ukc_ref_inside00_alb.png
+
+newmtl ukc_entrance
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_entrance_alb.png
+map_d ukc_entrance_alb.png
+
+newmtl ukc_fence_area3
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_fence_alb.png
+map_d ukc_fence_alb.png
+
+newmtl ukc_fence_area3.001
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_fence_alb.png
+map_d ukc_fence_alb.png
+
+newmtl ukc_frame_area3
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_frame_alb.png
+map_d ukc_frame_alb.png
+
+newmtl ukc_frame_area4
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_frame_alb.png
+map_d ukc_frame_alb.png
+
+newmtl ukc_frame_area6
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_frame_alb.png
+map_d ukc_frame_alb.png
+
+newmtl ukc_gate_emblem
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_gate_emblem_alb.png
+map_d ukc_gate_emblem_alb.png
+
+newmtl ukc_greenbrick
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_castlewall02_g_alb.png
+map_d ukc_castlewall02_g_alb.png
+
+newmtl ukc_greenbrick.001
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_castlewall02_g_alb.png
+map_d ukc_castlewall02_g_alb.png
+
+newmtl ukc_greeniron_out_area5
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_greeniron_out_alb.png
+map_d ukc_greeniron_out_alb.png
+
+newmtl ukc_ironchain_01
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ironchain_01_alb.png
+map_d ukc_ironchain_01_alb.png
+
+newmtl ukc_ironjump_01
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ironjump_01_alb.png
+map_d ukc_ironjump_01_alb.png
+
+newmtl ukc_ironjump_01.001
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ironjump_01_alb.png
+map_d ukc_ironjump_01_alb.png
+
+newmtl ukc_ironjump_01_area4
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ironjump_01_alb.png
+map_d ukc_ironjump_01_alb.png
+
+newmtl ukc_ironjump_01_area7
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ironjump_01_alb.png
+map_d ukc_ironjump_01_alb.png
+
+newmtl ukc_ironroad_01
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ironroad_01_alb.png
+map_d ukc_ironroad_01_alb.png
+
+newmtl ukc_ref_inside00
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ref_inside00_alb.png
+map_d ukc_ref_inside00_alb.png
+
+newmtl ukc_ref_leva_A
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ef_lava_alb.png
+map_d ef_lava_alb.png
+
+newmtl ukc_ref_leva_A.002
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ef_lava_alb.png
+map_d ef_lava_alb.png
+
+newmtl ukc_ref_room01_A
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 1.000000
+illum 1
+
+newmtl ukc_ref_room01_B
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 1.000000
+illum 1
+
+newmtl ukc_road_wood_area0
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_gatewood_alb.png
+map_d ukc_gatewood_alb.png
+
+newmtl ukc_roadbrick_01
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_roadbrick_01_alb.png
+map_d ukc_roadbrick_01_alb.png
+
+newmtl ukc_roadbrick_01_area4
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_roadbrick_01_alb.png
+map_d ukc_roadbrick_01_alb.png
+
+newmtl ukc_roadbrick_01_area5
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_roadbrick_01_alb.png
+map_d ukc_roadbrick_01_alb.png
+
+newmtl ukc_roadbrick_01_area6
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_roadbrick_01_alb.png
+map_d ukc_roadbrick_01_alb.png
+
+newmtl ukc_roadbrick_02
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_roadbrick_01_alb.png
+map_d ukc_roadbrick_01_alb.png
+
+newmtl ukc_roadbrick_02.001
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_roadbrick_01_alb.png
+map_d ukc_roadbrick_01_alb.png
+
+newmtl ukc_tapestry_01
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_tapestry_alb.png
+map_d ukc_tapestry_alb.png
+
+newmtl ukc_window
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_window_alb.png
+map_d ukc_window_alb.png
+
+newmtl ukc_zz_depth_a1
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd ukc_ref_inside00_alb.png
+map_d ukc_ref_inside00_alb.png
+
+newmtl wiigv_Dart03
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd wiigv_dart01_alb.png
+map_d wiigv_dart01_alb.png
+
+newmtl wiigv_ry_cliff_02
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd wiigv_ry_cliff_02_alb.png
+map_d wiigv_ry_cliff_02_alb.png
+
+newmtl wiigv_ry_cliff_02_area6
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd wiigv_ry_cliff_02_alb.png
+map_d wiigv_ry_cliff_02_alb.png
+
+newmtl wiigv_ry_cliff_03_a
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd wiigv_ry_cliff_03_alb.png
+map_d wiigv_ry_cliff_03_alb.png
+
+newmtl wiigv_ry_cliff_03_area6
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd wiigv_ry_cliff_03_alb.png
+map_d wiigv_ry_cliff_03_alb.png
+
+newmtl wiigv_ry_road_02_area0
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd wiigv_ry_road_02_alb.png
+map_d wiigv_ry_road_02_alb.png
+
+newmtl wiigv_ry_road_02_area6
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ni -1.000000
+d 0.000000
+illum 1
+map_Kd wiigv_ry_road_02_alb.png
+map_d wiigv_ry_road_02_alb.png

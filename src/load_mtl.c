@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/14 17:04:40 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/29 13:52:00 by pribault         ###   ########.fr       */
+/*   Updated: 2019/06/18 18:17:32 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,10 @@ t_texture	*get_texture(t_vector *vec, char *name, char *file)
 	path = get_path(file);
 	current = NULL;
 	if (ft_strlen(path))
-		name = ft_joinf("%s/%s", get_path(file), name);
+		name = ft_joinf("%s/%s", path, name);
 	else
 		name = ft_strdup(name);
+	free(path);
 	i = (size_t)-1;
 	while (++i < vec->n && (current = ft_vector_get(vec, i)))
 		if (!ft_strcmp(name, current->name))
