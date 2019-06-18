@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 15:08:51 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/29 14:22:11 by pribault         ###   ########.fr       */
+/*   Updated: 2019/06/18 17:38:25 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,8 @@ void	init_sdl(t_win *win)
 		error(6, NULL, 1);
 	if (!(win->context = SDL_GL_CreateContext(win->win)))
 		error(7, NULL, 1);
-#ifdef __LINUX__
 	if (glewInit() != GLEW_OK)
 		error(3, NULL, 1);
-#endif
 }
 
 char	*get_file_content(char *file)
@@ -89,17 +87,15 @@ void	init_opengl(t_env *env)
 		glGetString(GL_SHADING_LANGUAGE_VERSION));
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_TEXTURE_2D);
-	glDepthFunc(GL_LESS);
 	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glEnable(GL_CULL_FACE);
-	glCullFace(GL_BACK);
 	glGenVertexArrays(1, &env->vao);
 	glBindVertexArray(env->vao);
 	glUseProgram(env->shaders.program);
 	env->model_id = glGetUniformLocation(env->shaders.program, "model");
 	env->view_id = glGetUniformLocation(env->shaders.program, "view");
-	env->projection_id = glGetUniformLocation(env->shaders.program, "projection");
+	env->projection_id = glGetUniformLocation(env->shaders.program,
+		"projection");
 	env->light_id = glGetUniformLocation(env->shaders.program, "light");
 	env->quat_id = glGetUniformLocation(env->shaders.program, "quaternion");
 	env->pos_id = glGetUniformLocation(env->shaders.program, "position");

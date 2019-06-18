@@ -6,7 +6,7 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/10 14:55:02 by pribault          #+#    #+#             */
-/*   Updated: 2019/06/12 16:44:31 by pribault         ###   ########.fr       */
+/*   Updated: 2019/06/18 17:34:06 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,7 @@
 
 # include <sys/time.h>
 # include <sys/stat.h>
-# ifdef __APPLE__
-#  include <OpenGL/gl3.h>
-# else
-#  ifdef __linux__
-#   include <GL/glew.h>
-#  endif
-# endif
+# include <GL/glew.h>
 # include <SDL2/SDL.h>
 # include <SDL2/SDL_image.h>
 # include "ft_printf.h"

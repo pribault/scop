@@ -6,20 +6,14 @@
 /*   By: pribault <pribault@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/13 11:08:59 by pribault          #+#    #+#             */
-/*   Updated: 2018/06/28 10:44:43 by pribault         ###   ########.fr       */
+/*   Updated: 2019/06/18 17:34:27 by pribault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_H
 # define VECTOR_H
 
-# ifdef __APPLE__
-#  include <OpenGL/gl3.h>
-# else
-#  ifdef __linux__
-#   include <GL/glew.h>
-#  endif
-# endif
+# include <GL/glew.h>
 # include <math.h>
 
 typedef GLfloat	t_type;
